@@ -1,6 +1,8 @@
 <?php 
 require_once 'library/autoloader.php';
 
+date_default_timezone_set('Europe/Warsaw'); 
+
 $surl = $_SERVER['REQUEST_URI'];
 $urlControllerActionParts = explode('?', $surl);
 $urlControllerAction = $urlControllerActionParts[0];
