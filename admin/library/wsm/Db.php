@@ -22,6 +22,8 @@ class Wsm_Db{
     public function connect(){
         $this->connection = mysql_connect($this->host, $this->user, $this->password);
         mysql_select_db("wsmochota", $this->connection);
+        mysql_set_charset("utf8", $this->connection);
+        
         if($this->connection->connect_error){
             throw new Exception("Db connection error");
         }

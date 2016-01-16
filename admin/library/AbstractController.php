@@ -16,5 +16,9 @@ class AbstractController{
     public function getViewData(){
         return $this->viewData;
     }
+    
+    protected function get($key){
+        return $_GET[$key];
+    }
 }
 

@@ -7,4 +7,9 @@ class PagesController extends AbstractController{
         $this->addToView('pageList', $pageDb->getList());
     }
     
+        public function editAction(){
+        $pageDb = new Wsm_Db_Page();
+        $this->addToView('page', $pageDb->get($this->get('id')));
+    }
+    
 }

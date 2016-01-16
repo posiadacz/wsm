@@ -1,7 +1,13 @@
-pages index action
 
+<table class="table table-striped">
+    <tr>
+        <th>Tytuł</th>
+        <th>Opcje</th>
+    </tr>
 <?php foreach($viewData['pageList'] as $page){ ?>
-
-<?= $page->getId() ?>
-
+    <tr>
+        <td><?= $page->getTitle() ?></td>
+        <td><a href="/admin/pages/edit?id=<?= $page->getId() ?>" class="btn btn-primary">Edytuj</a></td>
+    </tr>
 <?php } ?>
+</table>

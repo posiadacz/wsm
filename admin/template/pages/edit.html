@@ -1,0 +1,13 @@
+<? $page = $viewData['page'] ?>
+<form>
+  <div class="form-group">
+    <label for="title">Tytuł</label>
+    <input class="form-control" name="title" value="<?= $page->getTitle() ?>"/>
+  </div>
+  <div class="form-group">
+    <label for="content">Treść</label>
+    <textarea class="form-control" name="content"><?= $page->getContent() ?></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Zapisz</button>
+  <a href="/admin/pages" class="btn btn-warning">Anuluj</a>
+</form>

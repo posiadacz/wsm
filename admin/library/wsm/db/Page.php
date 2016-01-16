@@ -12,6 +12,12 @@ class Wsm_Db_Page{
         return $list;
     }
     
+        public function get($id){
+        $q = 'select * from pages where id="' . $id . '"';
+        $rows = Wsm_Db::getInstance()->query($q);
+        return $this->parseRow($rows[0]);
+    }
+    
     
     private function parseRow($row){
         $page = new Wsm_Page();

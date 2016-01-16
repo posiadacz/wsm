@@ -9,7 +9,8 @@ function d($val){
 }
 
 $url = $_SERVER['REQUEST_URI'];
-$urlParts = explode('/', $url);
+$urlControllerAction = explode('?', $url)[0];
+$urlParts = explode('/', $urlControllerAction);
 
 $controller = !empty($urlParts[2]) ? $urlParts[2] : 'index';
 $action = !empty($urlParts[3]) ? $urlParts[3] : 'index';
