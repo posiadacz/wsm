@@ -7,4 +7,8 @@ class LoginController extends AbstractController{
 
     }
     
+    public function logoutAction(){
+        $this->redirect('');
+    }
+    
 }
