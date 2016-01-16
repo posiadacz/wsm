@@ -3,7 +3,7 @@
 function wsmAutoload($name) {
     try{
         $ex = explode('_', $name);
-        $filePath = '../library';
+        $filePath = 'library';
         $exSize = count($ex);
         $i = 1;
         foreach($ex as $part){
