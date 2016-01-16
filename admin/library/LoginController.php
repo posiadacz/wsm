@@ -1,6 +1,6 @@
 <?php
 
-class IndexController extends AbstractController{
+class LoginController extends AbstractController{
     
     public function indexAction(){
         
