@@ -29,5 +29,9 @@ $actionName = ucfirst($action) . 'Action';
 
 $controllerObj = new $controllerName();
 $controllerObj->$actionName();
+$viewData = $controllerObj->getViewData();
+
 
 include('template/layout.html');
+
+Wsm_Db::getInstance()->disconnect();
