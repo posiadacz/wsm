@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Spółdzielnia Mieszkaniowa WSM Ochota</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/gif" href="favicon.gif" >
+<style type="text/css">
+
+#topbar{
+position:absolute;
+border: 0px solid black;
+padding: 2px;
+background-color: #F3F6FC;
+width: 1115px;
+font-family: 'Century Gothic', sans-serif;
+font-size:13px;
+visibility: hidden;
+z-index: 100;
+}
+
+</style>
+
+<script type="text/javascript">
+
+/***********************************************
+* Floating Top Bar script- © Dynamic Drive (www.dynamicdrive.com)
+* Sliding routine by Roy Whittle (http://www.javascript-fx.com/)
+* This notice must stay intact for legal use.
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+var persistclose=1 //set to 0 or 1. 1 means once the bar is manually closed, it will remain closed for browser session
+var startX = 50 //set x offset of bar in pixels
+var startY = 1 //set y offset of bar in pixels
+var verticalpos="fromtop" //enter "fromtop" or "frombottom"
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function get_cookie(Name) {
+var search = Name + "="
+var returnvalue = "";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search)
+if (offset != -1) {
+offset += search.length
+end = document.cookie.indexOf(";", offset);
+if (end == -1) end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+
+function closebar(){
+if (persistclose)
+document.cookie="remainclosed=1"
+document.getElementById("topbar").style.visibility="hidden"
+}
+
+function staticbar(){
+	barheight=document.getElementById("topbar").offsetHeight
+	var ns = (navigator.appName.indexOf("Netscape") != -1) || window.opera;
+	var d = document;
+	function ml(id){
+		var el=d.getElementById(id);
+		if (!persistclose || persistclose && get_cookie("remainclosed")=="")
+		el.style.visibility="visible"
+		if(d.layers)el.style=el;
+		el.sP=function(x,y){this.style.left=x+"px";this.style.top=y+"px";};
+		el.x = startX;
+		if (verticalpos=="fromtop")
+		el.y = startY;
+		else{
+		el.y = ns ? pageYOffset + innerHeight : iecompattest().scrollTop + iecompattest().clientHeight;
+		el.y -= startY;
+		}
+		return el;
+	}
+	window.stayTopLeft=function(){
+		if (verticalpos=="fromtop"){
+		var pY = ns ? pageYOffset : iecompattest().scrollTop;
+		ftlObj.y += (pY + startY - ftlObj.y)/8;
+		}
+		else{
+		var pY = ns ? pageYOffset + innerHeight - barheight: iecompattest().scrollTop + iecompattest().clientHeight - barheight;
+		ftlObj.y += (pY - startY - ftlObj.y)/8;
+		}
+		ftlObj.sP(ftlObj.x, ftlObj.y);
+		setTimeout("stayTopLeft()", 10);
+	}
+	ftlObj = ml("topbar");
+	stayTopLeft();
+}
+
+if (window.addEventListener)
+window.addEventListener("load", staticbar, false)
+else if (window.attachEvent)
+window.attachEvent("onload", staticbar)
+else if (document.getElementById)
+window.onload=staticbar
+</script> 
+<link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
+<script src="jquery.min.js" type="text/javascript"></script>
+<script src="jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(window).load(function() {
+    $('#slider').nivoSlider({
+        effect: 'fold', // Specify sets like: 'random,fold,fade,sliceDown'
+        slices: 15, // For slice animations
+        boxCols: 8, // For box animations
+        boxRows: 4, // For box animations
+        animSpeed: 500, // Slide transition speed
+        pauseTime: 5000, // How long each slide will show
+        startSlide: 0, // Set starting Slide (0 index)
+        directionNav: true, // Next & Prev navigation
+        controlNav: true, // 1,2,3... navigation
+        controlNavThumbs: false, // Use thumbnails for Control Nav
+        pauseOnHover: false, // Stop animation while hovering
+        manualAdvance: false, // Force manual transitions
+        prevText: 'Prev', // Prev directionNav text
+        nextText: 'Next', // Next directionNav text
+        randomStart: false, // Start on a random slide
+        beforeChange: function(){}, // Triggers before a slide transition
+        afterChange: function(){}, // Triggers after a slide transition
+        slideshowEnd: function(){}, // Triggers after all slides have been shown
+        lastSlide: function(){}, // Triggers when last slide is shown
+        afterLoad: function(){} // Triggers when slider has loaded
+    });
+});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38577974-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body>
+<div id="topbar">
+Szanowni Państwo,<br>
+W ramach naszej witryny stosujemy pliki cookies w celu świadczenia Państwu usług na najwyższym poziomie, więcej informacji w naszej <a href="cookies.html"><b>Polityce Prywatności</b></a> 
+&nbsp; &nbsp;&nbsp; &nbsp;
+<a href="" onClick="closebar(); return false"><u> ZAMKNIJ</u></a></td></tr></table>
+</div>
+<div id="container">
+
+	<div id="logo">
+    <img src="images/logo.jpg" /><br />
+    <center>
+	<table width="60">
+	<tr>
+	<td align="left"><a href="kontakt.html">
+	<img src="images/mail.png" border="0" /></a></td>
+	<td align="right"><a href="sitemap.html"><img src="images/sitemap_application_blue.png" border="0" alt="Mapa Strony" /></a></td></tr>
+    
+	</table></center>
+    </div>
+    
+    <div id="banner">
+    
+    
+    <div id="slider" class="nivoSlider">
+        <img src="images/slide1.jpg" alt=""  />
+        <img src="images/slide2.jpg" alt="" />
+        <img src="images/slide3.jpg" alt=""  />
+        <img src="images/slide4.jpg" alt="" />
+        <img src="images/slide5.jpg" alt="" />
+    </div>
+</div>
+
+
+	<div id="menu">
+    
+    <div id="left_menu">
+    <img src="images/left_menu.png" />
+    </div>
+    
+    <div id="center_menu">
+	<table style="margin-top:10px;">
+	<tr>
+    <td>
+	<a href="index.html"><font color="#FFFFFF" style="font-size:13px;">Aktualności</font></a>  <font size="+2">|</font>
+	</td><td>
+	<a href="spoldzielnia.html"><font color="#FFFFFF" style="font-size:13px;">O Spółdzielni</font></a>  <font size="+2">|</font>
+	</td><td>
+	<a href="wladze.html"><font color="#FFFFFF" style="font-size:13px;">Władze Spółdzielni</font></a>  <font size="+2">|</font>
+	</td><td>
+	<a href="przetargi.html"><font color="#FFFFFF" style="font-size:13px;">Przetargi</font></a>  <font size="+2">|</font>
+	</td><td>
+	<a href="remonty.html"><font color="#FFFFFF" style="font-size:13px;">Remonty i eksploatacje</font></a>  <font size="+2">|</font>
+	</td><td>
+	<a href="mapa/mapa.html" target="new"><font color="#FFFFFF" style="font-size:13px;">Mapa Spółdzielni</font></a> <font size="+2">|</font>
+	</td><td>
+	<a href="dokumenty_menu.html"><font color="#FFFFFF" style="font-size:13px;">Dokumenty</font></a> <font size="+2">|</font>
+	</td><td><center>
+	<a href="ogloszenia_czlonkow_spoldzielni.html"><font color="#FFFFFF" style="font-size:13px;">Ogłoszenia <br>Członków Spółdzielni</font></a> </center>
+	</td><td>
+	<font size="+2">|</font>
+	<a href="wideo.html"><font color="#FFFFFF" style="font-size:13px;">Wideo</font></a> <font size="+2">|</font>
+	</td><td>
+	<a href="kontakt.html"><font color="#FFFFFF" style="font-size:13px;">Kontakt</font></a>
+	</tr></table>
+    </div>
+    
+    <div id="right_menu">
+    <img src="images/right_menu.png" />
+    </div>
+    
+    
+    </div>
+<div class="clear"></div>
+
+
+	<div id="zawartosc">
+    
+    <div id="info">
+Znajdujesz sie w sekcji: <a href="spoldzielnia.html">O Spółdzielni</a>
+</div>
+    
+<div id="content">
+
+<div id="news">

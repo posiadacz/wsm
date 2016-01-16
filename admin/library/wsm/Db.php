@@ -23,8 +23,8 @@ class Wsm_Db{
         $this->connection = mysql_connect($this->host, $this->user, $this->password);
         mysql_select_db("wsmochota", $this->connection);
         mysql_set_charset("utf8", $this->connection);
-        
-        if(!empty(mysql_error($this->connection))){
+        $err = mysql_error($this->connection);
+        if(!empty($err)){
             throw new Exception("Db connection error");
         }
     }
@@ -48,7 +48,8 @@ class Wsm_Db{
     
     public function update($query){
         mysql_query($query, $this->connection);
-        if(!empty($error = mysql_error($this->connection))){
+        $error = mysql_error($this->connection);
+        if(!empty($error)){
             throw new Exception($error);
         }
     }
