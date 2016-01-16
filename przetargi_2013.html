@@ -1,0 +1,1136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Spółdzielnia Mieszkaniowa WSM Ochota</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/gif" href="favicon.gif" >
+<style type="text/css">
+
+#topbar{
+position:absolute;
+border: 0px solid black;
+padding: 2px;
+background-color: #F3F6FC;
+width: 1115px;
+font-family: 'Century Gothic', sans-serif;
+font-size:13px;
+visibility: hidden;
+z-index: 100;
+}
+
+</style>
+
+<script type="text/javascript">
+
+/***********************************************
+* Floating Top Bar script- © Dynamic Drive (www.dynamicdrive.com)
+* Sliding routine by Roy Whittle (http://www.javascript-fx.com/)
+* This notice must stay intact for legal use.
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+var persistclose=1 //set to 0 or 1. 1 means once the bar is manually closed, it will remain closed for browser session
+var startX = 50 //set x offset of bar in pixels
+var startY = 1 //set y offset of bar in pixels
+var verticalpos="fromtop" //enter "fromtop" or "frombottom"
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function get_cookie(Name) {
+var search = Name + "="
+var returnvalue = "";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search)
+if (offset != -1) {
+offset += search.length
+end = document.cookie.indexOf(";", offset);
+if (end == -1) end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+
+function closebar(){
+if (persistclose)
+document.cookie="remainclosed=1"
+document.getElementById("topbar").style.visibility="hidden"
+}
+
+function staticbar(){
+	barheight=document.getElementById("topbar").offsetHeight
+	var ns = (navigator.appName.indexOf("Netscape") != -1) || window.opera;
+	var d = document;
+	function ml(id){
+		var el=d.getElementById(id);
+		if (!persistclose || persistclose && get_cookie("remainclosed")=="")
+		el.style.visibility="visible"
+		if(d.layers)el.style=el;
+		el.sP=function(x,y){this.style.left=x+"px";this.style.top=y+"px";};
+		el.x = startX;
+		if (verticalpos=="fromtop")
+		el.y = startY;
+		else{
+		el.y = ns ? pageYOffset + innerHeight : iecompattest().scrollTop + iecompattest().clientHeight;
+		el.y -= startY;
+		}
+		return el;
+	}
+	window.stayTopLeft=function(){
+		if (verticalpos=="fromtop"){
+		var pY = ns ? pageYOffset : iecompattest().scrollTop;
+		ftlObj.y += (pY + startY - ftlObj.y)/8;
+		}
+		else{
+		var pY = ns ? pageYOffset + innerHeight - barheight: iecompattest().scrollTop + iecompattest().clientHeight - barheight;
+		ftlObj.y += (pY - startY - ftlObj.y)/8;
+		}
+		ftlObj.sP(ftlObj.x, ftlObj.y);
+		setTimeout("stayTopLeft()", 10);
+	}
+	ftlObj = ml("topbar");
+	stayTopLeft();
+}
+
+if (window.addEventListener)
+window.addEventListener("load", staticbar, false)
+else if (window.attachEvent)
+window.attachEvent("onload", staticbar)
+else if (document.getElementById)
+window.onload=staticbar
+</script> 
+<link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
+<script src="jquery.min.js" type="text/javascript"></script>
+<script src="jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(window).load(function() {
+    $('#slider').nivoSlider({
+        effect: 'fold', // Specify sets like: 'random,fold,fade,sliceDown'
+        slices: 15, // For slice animations
+        boxCols: 8, // For box animations
+        boxRows: 4, // For box animations
+        animSpeed: 500, // Slide transition speed
+        pauseTime: 3000, // How long each slide will show
+        startSlide: 0, // Set starting Slide (0 index)
+        directionNav: true, // Next & Prev navigation
+        controlNav: true, // 1,2,3... navigation
+        controlNavThumbs: false, // Use thumbnails for Control Nav
+        pauseOnHover: false, // Stop animation while hovering
+        manualAdvance: false, // Force manual transitions
+        prevText: 'Prev', // Prev directionNav text
+        nextText: 'Next', // Next directionNav text
+        randomStart: false, // Start on a random slide
+        beforeChange: function(){}, // Triggers before a slide transition
+        afterChange: function(){}, // Triggers after a slide transition
+        slideshowEnd: function(){}, // Triggers after all slides have been shown
+        lastSlide: function(){}, // Triggers when last slide is shown
+        afterLoad: function(){} // Triggers when slider has loaded
+    });
+});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38577974-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body>
+<div id="topbar">
+Szanowni Państwo,<br>
+W ramach naszej witryny stosujemy pliki cookies w celu świadczenia Państwu usług na najwyższym poziomie, więcej informacji w naszej <a href="cookies.html"><b>Polityce Prywatności</b></a> 
+&nbsp; &nbsp;&nbsp; &nbsp;
+<a href="" onClick="closebar(); return false"><u> ZAMKNIJ</u></a></td></tr></table>
+</div>
+<div id="container">
+
+	<div id="logo">
+    <img src="images/logo.jpg" /><br />
+    <center>
+	<table width="60">
+	<tr>
+	<td align="left"><a href="kontakt.html">
+	<img src="images/mail.png" border="0" /></a></td>
+	<td align="right"><a href="sitemap.html"><img src="images/sitemap_application_blue.png" border="0" alt="Mapa Strony" /></a></td></tr>
+    
+	</table></center>
+    </div>
+    
+    <div id="banner">
+    
+    
+   <div id="slider" class="nivoSlider">
+        <img src="images/slide1.jpg" alt=""  />
+        <img src="images/slide2.jpg" alt="" />
+        <img src="images/slide3.jpg" alt=""  />
+        <img src="images/slide4.jpg" alt="" />
+        <img src="images/slide5.jpg" alt="" />
+    </div>
+</div>
+
+
+	<div id="menu">
+    
+    <div id="left_menu">
+    <img src="images/left_menu.png" />
+    </div>
+    
+    <div id="center_menu">
+	<table style="margin-top:10px;">
+	<tr>
+    <td>
+	<a href="index.html"><font color="#FFFFFF" style="font-size:13px;">Aktualności</font></a>  <font size="+2">|</font>
+	</td><td>
+	<a href="spoldzielnia.html"><font color="#FFFFFF" style="font-size:13px;">O Spółdzielni</font></a>  <font size="+2">|</font>
+	</td><td>
+	<a href="wladze.html"><font color="#FFFFFF" style="font-size:13px;">Władze Spółdzielni</font></a>  <font size="+2">|</font>
+	</td><td>
+	<a href="przetargi.html"><font color="#FFFFFF" style="font-size:13px;">Przetargi</font></a>  <font size="+2">|</font>
+	</td><td>
+	<a href="remonty.html"><font color="#FFFFFF" style="font-size:13px;">Remonty i eksploatacje</font></a>  <font size="+2">|</font>
+	</td><td>
+	<a href="mapa/mapa.html" target="new"><font color="#FFFFFF" style="font-size:13px;">Mapa Spółdzielni</font></a> <font size="+2">|</font>
+	</td><td>
+	<a href="dokumenty_menu.html"><font color="#FFFFFF" style="font-size:13px;">Dokumenty</font></a> <font size="+2">|</font>
+	</td><td><center>
+	<a href="ogloszenia_czlonkow_spoldzielni.html"><font color="#FFFFFF" style="font-size:13px;">Ogłoszenia <br>Członków Spółdzielni</font></a> </center>
+	</td><td>
+	<font size="+2">|</font>
+	<a href="wideo.html"><font color="#FFFFFF" style="font-size:13px;">Wideo</font></a> <font size="+2">|</font>
+	</td><td>
+	<a href="kontakt.html"><font color="#FFFFFF" style="font-size:13px;">Kontakt</font></a>
+	</tr></table>
+    </div>
+    
+    <div id="right_menu">
+    <img src="images/right_menu.png" />
+    </div>
+    
+    
+    </div>
+<div class="clear"></div>
+
+
+	<div id="zawartosc">
+    
+    <div id="info">
+Znajdujesz sie w sekcji: <a href="przetargi.html">Przetargi</a> - <a href="przetargi_2013.html">
+  Postępowania przetargowe 2013r.</a>
+</div>
+    
+<div id="content">
+
+<!------------------------------------------------------------------>
+<div id="news">
+  <p align="right"><font color="#CCCCCC">20.11.2013r.</font></p>
+  <center>
+  <h2>ZAWIADOMIENIE</h2>
+  o przetargu lokali mieszkalnych w WSM „Ochota”
+  <br>  
+  </center>
+  <p align="justify">
+
+Zarząd WSM „Ochota” zawiadamia, że w dniu <b>5.12.2013r o godz. 12.00</b> w siedzibie Zarządu Spółdzielni w Warszawie przy ul. Pruszkowskiej 17 odbędzie się przetarg n/w lokali mieszkalnych postawionych do dyspozycji Spółdzielni:
+<br><br>
+<b>1.Lokal mieszkalny nr 26 położony w Warszawie przy ul. Hynka 5 (pow. 39,30 m&#178; – I piętro) - umowa ustanowienia spółdzielczego lokatorskiego prawa. </b>
+<br>
+<b>2. Lokal mieszkalny nr 76 położony w Warszawie przy ul. Baleya 14 (pow. 38,40m&#178; – parter) - umowa notarialna ustanowienia odrębnej własności.</b>
+<br>
+<b>
+3.Lokal mieszkalny nr 52 położony w Warszawie przy ul. Jankowskiej 3 (pow. 47,30m&#178; – IV piętro) - umowa notarialna ustanowienia odrębnej własności.
+</b>
+<br>
+<b>
+4. Lokal mieszkalny nr 57 położony w Warszawie przy ul. Okińskiego 8 (pow. 37,40m&#178; – IV piętro) - umowa notarialna ustanowienia odrębnej własności.
+</b>
+<br>
+<b>
+5. Lokal mieszkalny nr 87 położony w Warszawie przy ul. Dickensa 29 (pow. 72,13m&#178; – IV piętro) - umowa notarialna ustanowienia odrębnej własności.
+</b>
+<br></p><br><center>
+<a href="/dokumenty/Tabela do przetargu - ceny - 20.11.2013.pdf" target="_blank"><font color="red"><b>
+<table><tr><td>
+<img src="images/pdf.png">
+</td><td>
+Zestawienie cen lokali mieszkalnych do przetargu</td></tr></table></b></font></a></center>
+
+<p align="justify">
+Wyceny lokali mieszkalnych dokonane przez rzeczoznawcę majątkowego są do wglądu w biurze Zarządu Spółdzielni (ul. Pruszkowska 17; p.112; tel. 572-89-05, 572-89-07, 572-89-31).
+<br><br>
+Lokale mieszkalne zostaną udostępnione do obejrzenia w dniach <b>27.11.2013r. - 4.12.2013r.</b> Zamiar obejrzenia lokalu należy zgłosić w Administracji Osiedla :
+<ul>
+<li> ul. Gorlicka 1, tel. (22) 658-28-10 - poz. 2, 3, 4</li>
+<li> ul. Korotyńskiego 23, tel. (22) 846-14-67 - poz. 5</li> 
+<li> ul. Hynka 7, tel. (22) 846-02-71 - poz. 1 </li>
+</ul>
+Ofertę z ceną składa się pisemnie w zamkniętej kopercie z napisem „PRZETARG na lokal nr ……… przy ul.…………………….” w sekretariacie Zarządu Spółdzielni do dnia <b>5.12.2013r.</b> (ul. Pruszkowska 17, pok. 211 do godz. 9ºº).
+<br><br>
+W przetargu mogą brać udział osoby, które wpłaciły na konto Spółdzielni (<b> nr konta 08 1020 1156 0000 7802 0011 3167 </b>) wadium w wysokości 1/10 ceny lokalu.
+<br><br>
+Wadium oferenta, który wygrał przetarg zalicza się na poczet wartości lokalu.<br>
+Osoby zamierzające nabyć lokal przy pomocy kredytu bankowego, do oferty dołączają zaświadczenie z banku o wydaniu przyrzeczenia udzielenia kredytu.<br>
+Pełnomocnicy oferentów muszą przedłożyć pełnomocnictwo notarialne.<br>
+<br>
+Po otwarciu kopert i zreferowaniu treści złożonych ofert przetarg odbywa się dalej ustnie. Postąpienie może wynosić nie mniej niż 1000zł. Zaoferowana cena przestaje wiązać, gdy biorący udział w przetargu licytant zaoferował cenę wyższą. Przewodniczący Komisji ogłasza – który z oferentów wygrał przetarg – oferując najwyższą cenę, podając jej wysokość – a następnie zamyka przetarg.
+<br><br>
+Nabywca lokalu po zakończeniu przetargu winien w ciągu 21 dni wpłacić na konto Spółdzielni w całości kwotę odpowiadającą wartości lokalu uzyskaną w przetargu. Jeżeli nabywca nie wykona w terminie warunków przetargu co do zapłaty ceny, traci wadium, a skutki wygranego przetargu wygasają. Osobom, które nie wygrały przetargu wadium zwracane jest na wskazane konto w ciągu 3 dni od dnia zamknięcia przetargu.
+<br><br>
+WSM „Ochota” zastrzega sobie prawo odwołania przetargu bez podania przyczyny.
+  
+  </p>
+    <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+<!------------------------------------------------------------------>
+
+<!------------------------------------------------------------------>
+<div id="news">
+  <p align="right"><font color="#CCCCCC">07.11.2013r.</font></p>
+  <center>
+  <h2>OGŁOSZENIE</h2>
+  <p align="justify">
+  WSM "Ochota" Osiedle GORLICKA 02-130 Warszawa, ul. Gorlicka 1 telefon (22) 822-80-13 przeprowadza postępowanie o udzielenie zamówienia na wykonanie robót:
+  <br>
+  <center><b>
+  "Wykonywanie prac porządkowych w budynkach ujętych w wykazie w 2014 roku"
+  </b></center></p>
+  <p align="justify">
+  Oferty należy składać w zamkniętych kopertach w sekretariacie Administracji Osiedla GORLICKA Warszawa, ul. Gorlicka 1 pokój nr 12 do dnia 21.11.2013r. do godziny 9:00.
+  <br><br>
+  Materiały przetargowe są do nabycia w dziale technicznym Administracji pokój nr 3 - parter.
+  Cena materiałów przetargowych 200,00 zł brutto.
+  <br><br>
+  Przed przystąpieniem do przetargu oferenci winni zapoznać się z Regulaminem Przetargowym Spółdzielni oraz wzorem umów. Otwarcie ofert nastąpi w siedzibie Zarządu (ul. Pruszkowska 17) w dniu 21.11.2013r. o godzinie 12:00. Ogłoszenie wyników przetargu nastąpi w dniu 27.11.2013r. o godzinie 12:00.
+  <br><br>
+  Spółdzielnia zastrzega sobie prawo dowolnego wyboru oferenta, zmiany zakresu robót do wysokości posiadanych środków oraz unieważnienia części lub całości przetargu bez podania przyczyny.
+  </p>
+    <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+<!------------------------------------------------------------------>
+
+<!------------------------------------------------------------------>
+<div id="news">
+  <p align="right"><font color="#CCCCCC">07.11.2013r.</font></p>
+  <center>
+  <h2>OGŁOSZENIE</h2>
+  <p align="justify">
+  WSM "Ochota" Osiedle GORLICKA 02-130 Warszawa, ul. Gorlicka 1 telefon (22) 822-80-13 przeprowadza konkurs ofert na wykonanie robót:
+  <br>
+  <center><b>
+  "Pielęgnacja i konserwacja terenów zielonych na terenie Osiedla Gorlicka i Kolonii Okęcie"
+  </b></center></p>
+  <p align="justify">
+  Oferty należy składać w zamkniętych kopertach w sekretariacie Administracji Osiedla GORLICKA Warszawa, ul. Gorlicka 1 pokój nr 12 do dnia 21.11.2013r. do godziny 9:00.
+  <br><br>
+  Materiały przetargowe są do nabycia w dziale technicznym Administracji pokój nr 3 - parter.
+  Cena materiałów przetargowych 200,00 zł brutto.
+  <br><br>
+  Przed przystąpieniem do przetargu oferenci winni zapoznać się z Regulaminem Przetargowym Spółdzielni oraz wzorem umów. Otwarcie ofert nastąpi w siedzibie Zarządu (ul. Pruszkowska 17) w dniu 21.11.2013r. o godzinie 12:00. Ogłoszenie wyników przetargu nastąpi w dniu 27.11.2013r. o godzinie 12:00.
+  <br><br>
+  Spółdzielnia zastrzega sobie prawo dowolnego wyboru oferenta, zmiany zakresu robót do wysokości posiadanych środków oraz unieważnienia części lub całości przetargu bez podania przyczyny.
+  </p>
+    <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+<!------------------------------------------------------------------>
+
+<div id="news">
+  <p align="right"><font color="#CCCCCC">03.10.2013r.</font></p>
+  <center>
+  <h2>OGŁOSZENIE</h2>
+  O PRZETARGU NA WYKONANIE USŁUG Z ZAKRESU NADZORU INWESTORSKIEGO - „RADAROWA"
+  </center>
+  <p align="justify"><center>
+  <a href="dokumenty/OGLOSZENIE PRZETARGU RADAROWA.pdf" target="_new"><font color="red"><b>Szczegółowe informacje dotyczące postępowania przetargowego</b></font></a> 
+  <br><br>
+  
+  </p>
+    <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+<!------------------------------------------------------------------>
+<div id="news">
+  <p align="right"><font color="#CCCCCC">03.10.2013r.</font></p>
+  <center>
+  <h2>OGŁOSZENIE</h2>
+  O PRZETARGU NA WYKONANIE USŁUG Z ZAKRESU NADZORU INWESTORSKIEGO - „MOŁDAWSKA"
+  </center>
+  <p align="justify"><center>
+  <a href="dokumenty/OGLOSZENIE PRZETARGU MOLDAWSKA.pdf" target="_new"><font color="red"><b>Szczegółowe informacje dotyczące postępowania przetargowego</b></font></a> 
+  <br><br>
+  
+  </p>
+    <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+<!------------------------------------------------------------------>
+
+<div id="news">
+  <p align="right"><font color="#CCCCCC">03.10.2013r.</font></p>
+  <center>
+  <h2>OGŁOSZENIE</h2>
+  O PRZETARGU NA WYKONANIE USŁUG Z ZAKRESU NADZORU INWESTORSKIEGO - „HYNKA"
+  </center>
+  <p align="justify"><center>
+  <a href="dokumenty/OGLOSZENIE PRZETARGU HYNKA.pdf" target="_new"><font color="red"><b>Szczegółowe informacje dotyczące postępowania przetargowego</b></font></a> 
+  <br><br>
+  
+  </p>
+    <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+<!------------------------------------------------------------------>
+<div id="news">
+  <p align="right"><font color="#CCCCCC">25.09.2013r.</font></p>
+  <center>
+  <h2>Z A W I A D O M I E N I E</h2>
+o przetargu lokali mieszkalnych w WSM „Ochota”
+<br><br>
+<b><a href="dokumenty/Tabela do przetargu - ceny.pdf" target="_new"><font color="red">Zestawienie cen lokali mieszkalnych do przetargu</font></a>
+</b>
+  </center>
+  <p align="justify">
+  Zarząd WSM „Ochota” zawiadamia, że w <b>dniu 10.10.2013r.</b> o godz. <b>12:00</b> w siedzibie Zarządu Spółdzielni w Warszawie przy ul. Pruszkowskiej 17 odbędzie się przetarg n/w lokali mieszkalnych postawionych do dyspozycji Spółdzielni:
+  <br><br><b>
+1. Lokal mieszkalny nr 86 położony w Warszawie przy ul. Geodetów 8 (pow. 36,50 m2 –  V piętro) - umowa notarialna ustanowienia odrębnej własności.<br>
+2. Lokal mieszkalny nr 26 położony w Warszawie przy ul. Hynka 5 (pow. 39,30 m2  – I piętro) - umowa ustanowienia spółdzielczego lokatorskiego prawa.<br>  
+3. Lokal mieszkalny nr 76 położony w Warszawie przy ul. Baleya 8 (pow. 38,20 m2 – III piętro) - umowa notarialna ustanowienia odrębnej własności.  <br>
+4. Lokal mieszkalny nr 76 położony w Warszawie przy ul. Baleya 14 (pow. 38,40 m2 – parter) - umowa notarialna ustanowienia odrębnej własności.  <br>
+5. Lokal mieszkalny nr 52 położony w Warszawie przy ul. Jankowskiej 3 (pow. 47,30 m2 – IV piętro) - umowa notarialna ustanowienia odrębnej własności.<br>
+6. Lokal mieszkalny nr 57 położony w Warszawie przy ul. Okińskiego 8 (pow. 37,40 m2 – IV piętro) - umowa notarialna ustanowienia odrębnej własności.  <br>
+7. Lokal mieszkalny nr 87 położony w Warszawie przy ul. Dickensa 29 (pow. 72,13 m2 –  IV piętro) - umowa notarialna ustanowienia odrębnej własności.<br>
+8. Lokal mieszkalny nr 23 położony w Warszawie przy ul. Astronautów 8 (pow. 29,00 m2 – parter) - umowa ustanowienia spółdzielczego lokatorskiego prawa.
+</b>
+<br><br>
+Wyceny lokali mieszkalnych dokonane przez rzeczoznawcę majątkowego są do wglądu w biurze Zarządu Spółdzielni (ul. Pruszkowska 17; p.112; tel. 572-89-05, 572-89-07, 572-89-31).<br><br>
+Lokale mieszkalne zostaną udostępnione do obejrzenia w dniach  2.10.2013r. - 9.10.2013r. Zamiar obejrzenia lokalu należy zgłosić w Administracji Osiedla :  
+<br><br>
+- ul. Gorlicka  1, tel.  (22) 658-28-10  - poz. 3, 4, 5, 6
+- ul. Korotyńskiego 23, tel.  (22) 846-14-67  - poz. 1, 7 
+- ul. Hynka  7, tel.  (22) 846-02-71  - poz. 2, 8
+<br><br>
+Ofertę z ceną składa się pisemnie w zamkniętej kopercie z napisem „PRZETARG na lokal nr …… przy ul. …………………………….” w sekretariacie Zarządu Spółdzielni do dnia <b>10.10.2013r.</b> (ul. Pruszkowska 17, pok. 211 do godz. 9ºº).
+<br><br>
+W przetargu mogą brać udział osoby, które wpłaciły na konto Spółdzielni ( <b>nr konta 08 1020 1156 0000 7802 0011 3167</b> )  wadium w wysokości 1/10 ceny lokalu.
+<br><br>
+Wadium oferenta, który wygrał przetarg zalicza się na poczet wartości lokalu.Osoby zamierzające nabyć lokal przy pomocy kredytu bankowego, do oferty dołączają zaświadczenie z banku o wydaniu przyrzeczenia udzielenia kredytu. Pełnomocnicy oferentów muszą przedłożyć pełnomocnictwo notarialne.
+<br><br>
+Po otwarciu kopert i zreferowaniu treści złożonych ofert przetarg odbywa się dalej ustnie. Postąpienie może wynosić nie mniej niż 1000zł. Zaoferowana cena przestaje wiązać, gdy biorący udział w przetargu licytant zaoferował cenę wyższą. Przewodniczący Komisji ogłasza – który z oferentów wygrał przetarg – oferując najwyższą cenę, podając jej wysokość – a następnie zamyka przetarg.
+<br><br>
+Nabywca lokalu po zakończeniu przetargu winien w ciągu 21 dni wpłacić na konto Spółdzielni w całości kwotę odpowiadającą wartości lokalu uzyskaną w przetargu.
+Jeżeli nabywca nie wykona w terminie warunków przetargu co do zapłaty ceny, traci wadium, a skutki wygranego przetargu wygasają.
+<br><br>
+Osobom, które nie wygrały przetargu wadium zwracane jest na wskazane konto w ciągu 3 dni od dnia zamknięcia przetargu.
+<br><br>
+WSM „Ochota” zastrzega sobie prawo odwołania przetargu bez podania przyczyny.
+  </p>
+    <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+<!------------------------------------------------------------------>
+
+<div id="news">
+  <p align="right"><font color="#CCCCCC">19.09.2013r.</font></p>
+  <center>
+  <h2>OGŁOSZENIE</h2>
+  </center>
+  <p align="justify"><center>
+  WSM "Ochota" Osiedle Jadwisin ul. Korotyńskiego 23, 02-123 Warszawa, telefon (22) 846 14 67<br>
+  <b>ogłasza przetarg na malowanie klatek schodowych w budynkach mieszkalnych:</b>
+  <br><br>
+  <table><tr><td>
+  <b>1. ul. Dobosza 4/6<br>
+  2. ul. Lechicka 6</b><br><br></tr></td></table>
+  </center>
+  Oferty należy składać w zamkniętych kopertach w sekretariacie Administracji Osiedla Jadwisin, ul. Korotyńskiego 23, 02-123 Warszawa do dnia <b> 4 października 2013r. do godziny 9:00</b>.
+  <br><br>
+  Materiały przetargowe będą do nabycia w Administracji Osiedla Jadwisin za cenę 300 zł brutto.
+  <br><br>
+  Otwarcie ofert nastąpi w siedzibie biura Spółdzielni ul. Pruszkowska 17, pokój 213 w dniu <b>7 października 2013r. godzina 10:00</b>.
+  <br><br>
+  Ogłoszenie wyników przetargu nastąpi w dniu 15 października o godzinie 12:00.
+  <br><br>
+  Spółdzielnia zastrzega sobie prawo dowolnego wyboru oferenta, zamiany zakresu robót do wysokości posiadanych środków oraz unieważnienia części lub całości przetargu bez podania przyczyny
+  </p>
+    <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+<!------------------------------------------------------------------>
+
+<div id="news">
+  <p align="right"><font color="#CCCCCC">18.09.2013r.</font></p>
+  <center>
+  <h2>OGŁOSZENIE</h2>
+  </center>
+  <p align="justify">
+  Administracja Osiedla Gorlicka informuje, że w przeprowadzonym postępowaniu przetargowym:
+  <br>
+  <center>
+  <b>
+  "Przetarg na wykonanie remontu elewacji oraz remontu balkonów budynku przy ul. Gorlickiej 4A"
+  </b></center>
+  <br>
+  na podstawie porównania złożonych ofert, wybrano ofertę firmy:
+  <br><br>
+  <center>
+  <b>
+  AGRAPLAST SP. Z O.O.<br>
+  ul. Międzynarodowa 68/1<br>
+  03-922 Warszawa
+  </b></center>
+  <br>
+  </p>
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+
+<!------------------------------------------------------------------>
+<div id="news">
+<p align="right"><font color="#CCCCCC">29.08.2013r.</font></p>
+<br><center>
+<h2>OGŁOSZENIE</h2>
+<br>
+
+
+</center>
+<p align="justify">
+WSM "Ochota" Osiedle GORLICKA 02-130 Warszawa, ul. Gorlicka 1 telefon (22) 822-80-13 przeprowadza postępowanie o udzielenie zamówienia na wykonanie robót:
+<br><br><b>
+1. Remont elewacji oraz balkonów budynku mieszkalnego przy ul. Gorlickiej 4a.
+<br><br></b>
+Oferty należy składać w zamkniętych kopertach w sekretariacie Administracji Osiedla GORLICKA Warszawa, ul. Gorlicka 1 pokój nr 12 do dnia 12.09.2013r. do godziny 9:00.
+<br><br>
+Materiały przetargowe są do nabycia w dziale technicznym Administracji pokój nr 3 - parter.
+<br><br>
+Cena materiałów przetargowych 400,00 zł brutto.
+<br><br>
+Przed przystąpieniem do przetargu oferenci winni zapoznać się z Regulaminem Przetargowym Spółdzielni oraz wzorem umów.
+<br><br>
+Otwarcie ofert nastąpi w siedzibie Zarządu (ul. Pruszkowska 17) w dniu 12.09.2013r. o godzinie 12:00. Ogłoszenie wyników nastąpi w dniu 16.09.2013r. o godzinie 12:00.
+<br><br>
+Spółdzielnia zastrzega sobie prawo dowolnego wyboru oferenta, zmiany zakresu robót do wysokości posiadanych środków oraz unieważnienia części lub całości przetargu bez podania przyczyny.
+</p>
+<p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+<!------------------------------------------------------------------>
+<div id="news">
+<p align="right"><font color="#CCCCCC">29.08.2013r.</font></p>
+<br><center>
+<h2>OGŁOSZENIE</h2>
+<br>
+
+
+</center>
+<p align="justify">
+WSM "Ochota" Osiedle GORLICKA 02-130 Warszawa, ul. Gorlicka 1 telefon (22) 822-80-13 przeprowadza postępowanie o udzielenie zamówienia na wykonanie robót:
+<br><br><b>
+1. Wymiana izolacji przeciwwodnej wierzchu stropu garażu podziemnego w budynku mieszkalnym przy ul. Racławickiej 133.
+<br><br></b>
+Oferty należy składać w zamkniętych kopertach w sekretariacie Administracji Osiedla GORLICKA Warszawa, ul. Gorlicka 1 pokój nr 12 do dnia 12.09.2013r. do godziny 9:00.
+<br><br>
+Materiały przetargowe są do nabycia w dziale technicznym Administracji pokój nr 3 - parter.
+<br><br>
+Cena materiałów przetargowych 200,00 zł brutto.
+<br><br>
+Przed przystąpieniem do przetargu oferenci winni zapoznać się z Regulaminem Przetargowym Spółdzielni oraz wzorem umów.
+<br><br>
+Otwarcie ofert nastąpi w siedzibie Zarządu (ul. Pruszkowska 17) w dniu 12.09.2013r. o godzinie 12:00. Ogłoszenie wyników nastąpi w dniu 16.09.2013r. o godzinie 12:00.
+<br><br>
+Spółdzielnia zastrzega sobie prawo dowolnego wyboru oferenta, zmiany zakresu robót do wysokości posiadanych środków oraz unieważnienia części lub całości przetargu bez podania przyczyny.
+</p>
+<p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+<!------------------------------------------------------------------>
+<div id="news">
+<p align="right"><font color="#CCCCCC">22.08.2013r.</font></p>
+<br><center>
+<h2>Z A W I A D O M I E N I E</h2>
+<br>
+o przetargu lokali mieszkalnych w WSM „Ochota”
+
+</center>
+<p align="justify">
+Zarząd WSM „Ochota” zawiadamia, że w <b>dniu 5.09.2013r o godz. 12.00</b> w siedzibie Zarządu Spółdzielni w Warszawie przy ul. Pruszkowskiej 17 odbędzie się przetarg n/w lokali mieszkalnych postawionych do dyspozycji Spółdzielni:
+<br><br><b>
+1. Lokal mieszkalny nr 22 położony w Warszawie przy ul. Gorlickiej 15B 
+(pow. 27,70 m2 – IV piętro) - umowa notarialna ustanowienia odrębnej własności.
+<br><br>
+2.  Lokal mieszkalny nr 3 położony w Warszawie przy ul. Baleya 12 
+(pow. 38,30 m2 – parter) - umowa notarialna ustanowienia odrębnej własności.
+<br><br>
+3. Lokal mieszkalny nr 86 położony w Warszawie przy ul. Geodetów 8 
+(pow. 36,50 m2 – V piętro) - umowa notarialna ustanowienia odrębnej własności.
+<br><br>
+4. Lokal mieszkalny nr 26 położony w Warszawie przy ul. Hynka 5 
+(pow. 39,30 m2 – I piętro) - umowa ustanowienia spółdzielczego lokatorskiego prawa.
+<br><br></b>
+Wyceny lokali mieszkalnych dokonane przez rzeczoznawcę majątkowego są do wglądu w biurze Zarządu Spółdzielni (ul. Pruszkowska 17; p.112; tel. 572-89-05, 572-89-07, 572-89-31).
+
+Lokale mieszkalne zostaną udostępnione do obejrzenia w dniach  <b>29.08.2013r. - 4.09.2013r.</b> Zamiar obejrzenia lokalu należy zgłosić w Administracji Osiedla :
+<ul>
+<li>ul. Gorlicka  1, tel.  (22) 658-28-10  - poz. 1, 2</li>
+<li>ul. Korotyńskiego 23, tel.  (22) 846-14-67  - poz. 3</li> 
+<li>ul. Hynka  7, tel.  (22) 846-02-71  - poz. 4</li>
+</ul>
+<br>
+Ofertę z ceną składa się pisemnie w zamkniętej kopercie z napisem „PRZETARG na lokal nr …… przy<br> ul. …………………………….” w sekretariacie Zarządu Spółdzielni do dnia     5.09.2013r. (ul. Pruszkowska 17, pok. 211 do godz. 9ºº).
+<br><br>
+W przetargu mogą brać udział osoby, które wpłaciły na konto Spółdzielni (<b>nr konta 08 1020 1156 0000 7802 0011 3167</b>)  wadium w wysokości 1/10 ceny lokalu.
+<br><br>
+Wadium oferenta, który wygrał przetarg zalicza się na poczet wartości lokalu. Osoby zamierzające nabyć lokal przy pomocy kredytu bankowego, do oferty dołączają zaświadczenie z banku o wydaniu przyrzeczenia udzielenia kredytu. Pełnomocnicy oferentów muszą przedłożyć pełnomocnictwo notarialne.
+<br><br>
+Po otwarciu kopert i zreferowaniu treści złożonych ofert przetarg odbywa się dalej ustnie. Postąpienie może wynosić nie mniej niż 1000zł. Zaoferowana cena przestaje wiązać, gdy biorący udział w przetargu licytant zaoferował cenę wyższą. Przewodniczący Komisji ogłasza – który z oferentów wygrał przetarg – oferując najwyższą cenę, podając jej wysokość – a następnie zamyka przetarg.
+<br><br>
+Nabywca lokalu po zakończeniu przetargu winien w ciągu 21 dni wpłacić na konto Spółdzielni w całości kwotę odpowiadającą wartości lokalu uzyskaną w przetargu. Jeżeli nabywca nie wykona w terminie warunków przetargu co do zapłaty ceny, traci wadium, a skutki wygranego przetargu wygasają. Osobom, które nie wygrały przetargu wadium zwracane jest na wskazane konto w ciągu 3 dni od dnia zamknięcia przetargu.
+<br><br>
+WSM „Ochota” zastrzega sobie prawo odwołania przetargu bez podania przyczyny.
+</p>
+<p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+<!------------------------------------------------------------------>
+<div id="news">
+<p align="right"><font color="#CCCCCC">08.07.2013r.</font></p>
+<br><center>
+<h2>Z A W I A D O M I E N I E</h2>
+<u>o przetargu lokali mieszkalnych w WSM „Ochota”</u></center>
+<p align="justify">
+Zarząd WSM „Ochota” zawiadamia, że <b>w dniu 18.07.2013r. o godz. 12.00</b> w siedzibie Zarządu Spółdzielni w Warszawie przy ul. Pruszkowskiej 17 odbędzie się przetarg n/w lokali mieszkalnych postawionych do dyspozycji Spółdzielni:</p>
+<p align="justify">
+<b>
+1. Lokal mieszkalny nr 22 położony w Warszawie przy ul. Gorlickiej 15B (pow. 27,70 m&#178; – IV piętro) - umowa notarialna ustanowienia odrębnej własności.<br>
+2. Lokal mieszkalny nr 37 położony w Warszawie przy ul. Hynka 5 (pow. 42,50 m&#178; – IV piętro) - umowa ustanowienia spółdzielczego lokatorskiego prawa. <br>
+3. Lokal mieszkalny nr 76 położony w Warszawie przy ul. Baleya 8 (pow. 38,20 m&#178; –  parter) - umowa notarialna ustanowienia odrębnej własności.</b></p>
+</p>
+<p align="justify">
+Wyceny lokali mieszkalnych dokonane przez rzeczoznawcę majątkowego są do wglądu w biurze Zarządu Spółdzielni (ul. Pruszkowska 17; p.112; tel. 572-89-05, 572-89-07, 572-89-31).
+<br><br>
+Lokale mieszkalne zostaną udostępnione do obejrzenia w dniach  <b>11.07.2013r. - 17.07.2013r.</b>
+Zamiar obejrzenia lokalu należy zgłosić w Administracji Osiedla :
+<ul>
+<li>ul. Gorlicka  1, tel.  658-28-10  - poz. 1, 3 </li>
+<li>ul. Hynka  7, tel.  846-02-71  - poz. 2</li>
+</ul>
+</p>
+<p align="justify">
+Ofertę z ceną składa się pisemnie w zamkniętej kopercie z napisem „PRZETARG na lokal nr …… przy ul. …………………………….” w sekretariacie Zarządu Spółdzielni do dnia <b>18.07.2013r.</b> <br>(ul. Pruszkowska 17, pok. 211 do godz. 9ºº).
+</p>
+<p align="justify">
+W przetargu mogą brać udział osoby, które wpłaciły na konto Spółdzielni (<b> nr konta 08 1020 1156 0000 7802 0011 3167 </b>)  wadium w wysokości 1/10 ceny lokalu.
+</p>
+<p align="justify">
+Wadium oferenta, który wygrał przetarg zalicza się na poczet wartości lokalu. Osoby zamierzające nabyć lokal przy pomocy kredytu bankowego, do oferty dołączają zaświadczenie z banku o wydaniu przyrzeczenia udzielenia kredytu. Pełnomocnicy oferentów muszą przedłożyć pełnomocnictwo notarialne.
+<br><br>
+Po otwarciu kopert i zreferowaniu treści złożonych ofert przetarg odbywa się dalej ustnie. Postąpienie może wynosić nie mniej niż 1000zł. Zaoferowana cena przestaje wiązać, gdy biorący udział w przetargu licytant zaoferował cenę wyższą. Przewodniczący Komisji ogłasza – który z oferentów wygrał przetarg – oferując najwyższą cenę, podając jej wysokość – a następnie zamyka przetarg. 
+<br><br>
+Nabywca lokalu po zakończeniu przetargu winien w ciągu 21 dni wpłacić na konto Spółdzielni w całości kwotę odpowiadającą wartości lokalu uzyskaną w przetargu. Jeżeli nabywca nie wykona w terminie warunków przetargu co do zapłaty ceny, traci wadium, a skutki wygranego przetargu wygasają. 
+<br>
+Osobom, które nie wygrały przetargu wadium zwracane jest na wskazane konto w ciągu 3 dni od dnia zamknięcia przetargu.
+<br><br>
+WSM „Ochota” zastrzega sobie prawo odwołania przetargu bez podania przyczyny.
+</p>
+
+<p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">20.06.2013r.</font></p>
+  <h1><center>
+  OGŁOSZENIE</h1></center>
+ 
+  
+ <p align="justify">WSM "Ochota" Osiedle GORLICKA 02-130 Warszawa, ul. Gorlicka 1 telefon (22) 822-80-13 przeprowadza postępowanie o udzielenie zamówienia na wykonanie w jednym budynku niżej wymienionych robót:
+<br><br><b>
+1. Doposażenie budynku w instalację ciepłej wody i cyrkulacji, wymiany instalacji zimnej wody, roboty remontowo-budowlane pomieszczeń węzła cieplnego.
+</b><br><br>
+Oferty należy składać w zamkniętych kopertach w sekretariacie Administracji Osiedla GORLICKA Warszawa, ul. Gorlicka 1 pokój nr 12 do dnia 28.06.2013r. do godziny 13:00. 
+<br><br>
+Materiały przetargowe są do nabycia w dziale technicznym Administracji pokój nr 3 - parter.
+Cena materiałów przetargowych 200,- zł brutto.
+<br><br>
+Przed przystąpieniem do przetargu oferenci winni zapoznać się z Regulaminem Przetargowym Spółdzielni oraz wzorem umów.
+<br><br>
+Otwarcie ofert nastąpi w siedzibie Administracji w dniu 01.07.2013r. o godzinie 10:00.
+Ogłoszenie wyników przetargu nastąpi w dniu 05.07.2013r. o godzinie 12:00.
+<br><br>
+Spółdzielnia zastrzega sobie prawo dowolnego wyboru oferenta, zmiany zakresu robót do wysokośći posiadanych środków oraz unieważnienie części lub całości przetargu bez podania przyczyny.</a>.
+</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">09.05.2013r.</font></p>
+   <h1><center>
+  ZAWIADOMIENIE</h1></center>
+  <center><u>o przetargu lokali mieszkalnych w WSM „Ochota”</u></center>
+  
+ <p align="justify">Zarząd WSM „Ochota” zawiadamia, że w dniu <b>23.05.2013r o godz. 12.00</b>
+w siedzibie Zarządu Spółdzielni w Warszawie przy ul. Pruszkowskiej 17 odbędzie się przetarg n/w
+lokali mieszkalnych postawionych do dyspozycji Spółdzielni:</p>
+<p align="justify">
+<b>
+1. Lokal mieszkalny nr 22 położony w Warszawie przy ul. Gorlickiej 15B (pow. 27,70 m&#178; – IV piętro) - umowa notarialna ustanowienia odrębnej własności.
+<br>
+2. Lokal mieszkalny nr 37 położony w Warszawie przy ul. Hynka 5 (pow. 42,50 m&#178; – IV piętro) - umowa ustanowienia spółdzielczego lokatorskiego prawa.
+<br>
+3. Lokal mieszkalny nr 1 położony w Warszawie przy ul. Geodetów 4 (pow. 36,50 m&#178; – parter) - umowa notarialna ustanowienia odrębnej własności.</b>
+</p>
+<p align="justify">
+Wyceny lokali mieszkalnych dokonane przez rzeczoznawcę majątkowego są do wglądu w biurze Zarządu Spółdzielni (ul. Pruszkowska 17; p.112; tel. 572-89-05, 572-89-07, 572-89-31).
+</p>
+
+<p align="justify">
+Lokale mieszkalne zostaną udostępnione do obejrzenia w dniach <b>15.05.2013r. - 22.05.2013r.</b> Zamiar obejrzenia lokalu należy zgłosić w Administracji Osiedla :
+<ul>
+<li>ul. Gorlicka 1, tel. 658-28-10 - poz. 1</li>
+<li>ul. Hynka 7, tel. 846-02-71 - poz. 2</li>
+<li>ul. Korotyńskiego 23, tel. 846-14-67 - poz. 3</li>
+</ul>
+</p>
+  
+  <p align="justify">
+  Ofertę z ceną składa się pisemnie w zamkniętej kopercie z napisem „PRZETARG na lokal nr …… przy ul. …………………………….” w sekretariacie Zarządu Spółdzielni do dnia 23.05.2013r. <br>(ul. Pruszkowska 17, pok. 211 do godz. 9:00).</p>
+  <p align="justify">
+  W przetargu mogą brać udział osoby, które wpłaciły na konto Spółdzielni (<b> nr konta 08 1020 1156 0000 7802 0011 3167</b>) wadium w wysokości 1/10 ceny lokalu.</p>
+  
+  <p align="justify">
+  Wadium oferenta, który wygrał przetarg zalicza się na poczet wartości lokalu. Osoby zamierzające nabyć lokal przy pomocy kredytu bankowego, do oferty dołączają zaświadczenie z banku o wydaniu przyrzeczenia udzielenia kredytu. Pełnomocnicy oferentów muszą przedłożyć pełnomocnictwo notarialne.</p>
+  
+  <p align="justify">
+  Po otwarciu kopert i zreferowaniu treści złożonych ofert przetarg odbywa się dalej ustnie. Postąpienie może wynosić nie mniej niż 1000zł. Zaoferowana cena przestaje wiązać, gdy biorący udział w przetargu licytant zaoferował cenę wyższą. Przewodniczący Komisji ogłasza – który z oferentów wygrał przetarg – oferując najwyższą cenę, podając jej wysokość – a następnie zamyka przetarg.</p>
+  
+  <p align="justify">
+  Nabywca lokalu po zakończeniu przetargu winien w ciągu 21 dni wpłacić na konto Spółdzielni w całości kwotę odpowiadającą wartości lokalu uzyskaną w przetargu. Jeżeli nabywca nie wykona w terminie warunków przetargu co do zapłaty ceny, traci wadium, a skutki wygranego przetargu wygasają. Osobom, które nie wygrały przetargu wadium zwracane jest na wskazane konto w ciągu 3 dni od dnia zamknięcia przetargu.</p>
+  
+  <p align="justify">WSM „Ochota” zastrzega sobie prawo odwołania przetargu bez podania przyczyny.</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">18.04.2013r.</font></p>
+  <h1><center>
+  OGŁOSZENIE<br></center></h1>
+  
+ <p align="justify">W dniu 18.04.2013r. Komisja Przetargowa, powołana przez Zarząd WSM "Ochota" dokonała wyboru najkorzystniejszych ofert na wykonanie niżej wymienionych robót:</p>
+
+<p align="justify"><ul>
+<li>Remont elewacji budynków wraz z remontem balkonów - <b>Firma AGRAPLAST Sp. z o.o.</b> 03-922 Warszawa, ul. Międzynarodowa 68/1, </li>
+<li>Przemurowanie kominów dachowych - <b>FIRMA BUDOWLANA I REMONTOWA STANISŁAW ABRAMOWSKI</b> 05-300 Mińsk Mazowiecki, ul. Malinowa 3,</li>
+<li>Wykonanie i wymiana świetlików dachowych - <b>F.P. METAL YACHT</b> 05-091 Ząbki, ul. Na Bagnie 11A.</li>
+</ul>
+</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">17.04.2013r.</font></p>
+  <h1><center>
+  OGŁOSZENIE<br></center></h1>
+  
+ <p align="justify">
+W dniu 12.04.2013r. Komisja Przetargowa, powołana przez Zarząd WSM "Ochota" dokonała wyboru najkorzystniejszej oferty na wynajem powierzchni handlowo-usługowej w pawilonie przy ul. Żwirki i Wigury w Warszawie, składającej się z trzech lokali o łącznej powierzchni 347,60 m&#178;, złożonej przez firmę <b>AGRA-PLAST S.G. STANISŁAW GNIAZDOWSKI</b>.
+</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">04.04.2013r.</font></p>
+  <h1><center>
+  ZAWIADOMIENIE<br></center></h1>
+  <center><h2>Dot. przetargu w dniu 11.04.2013r.<br> na lokal mieszkalny nr 8 przy ul. Dwudziestolatków 2</h2></center>
+  
+ <p align="justify">Zarząd WSM „Ochota” zawiadamia, że w/w przetarg zostaje <b>ograniczony – tylko dla członków Spółdzielni </b>– zgodnie z § 2 Regulaminu przetargu lokali WSM „OCHOTA”.</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">04.04.2013r.</font></p>
+  <h1><center>
+  OGŁOSZENIE<br></center></h1>
+  
+ <p align="justify">Zarząd WSM "Ochota" organizuje przetarg na wynajem powierzchni handlowo- usługowej w pawilonie przy ul. Żwirki i Wigury w Warszawie składającej się z 3 lokali o łącznej pow. <b>347,6 m&#178;</b>. Preferowana działalność, to handlowa, w tym asortyment spożywczy. Czas najmu: umowa na 10 lat z możliwością przedłużenia. Możliwość aranżacji pod potrzeby najemcy. Wejście do lokali bezpośrednio z ulicy, na szerokości lokalu witryny. W lokalach nie przewiduje się prowadzenia działalności gastronomicznej.</p>
+
+<p align="justify">
+Szczegółowy wykaz powierzchni lokali, rzut pawilonu wraz z SIWZ możliwy do odbioru w pokoju 206 przy ul. Pruszkowskiej 17 tel. 22 572 89 32. Termin składania ofert upływa z dniem 11.04.2013r. o godzinie 12:00.
+</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">27.03.2013r.</font></p>
+  <h1><center>
+  OGŁOSZENIE<br></center></h1>
+  
+ <p align="justify">WSM „Ochota” Osiedla Jadwisin 02-123 Warszawa ul. Korotyńskiego 23 prowadzą postępowanie o udzielenie zamówienia na wykonanie niżej wymienionych robót:</p>
+<p align="justify"><b>
+1. Remont pokryć dachów - 3 budynki.</b>
+</p><p align="justify">
+Oferty w zamkniętych kopertach należy składać w sekretariacie Osiedla pokój nr 36 do dnia <b>09.04.2013r. do godziny 10:00</b>.
+</p>
+<p align="justify">
+Otwarcie ofert nastąpi w dniu <b>10.04.2013r. o godzinie 12:00</b> w siedzibie Administracji Osiedla.
+</p>
+
+<p align="justify">
+MAteriały przetargowe do odebrania w Administracji Osiedla pokój nr 25 w godzinach 8:00 - 14:00 telefon 22 846 14 67 w. 115 Tomasz Wojcieski, po uprzednim wniesieniu opłaty.</p>
+
+<p align="justify">
+Cena materiałów przetargowych - 300zł. <br>
+Opłaty należy dokonać na konto: <b>88 1020 1055 0000 9702 0097 7157</b>.
+</p>
+
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">26.03.2013r.</font></p>
+  <h1><center>
+  ZAWIADOMIENIE<br></center></h1>
+  <h2><center>
+  o przetargu lokali mieszkalnych w WSM „Ochota”
+  </center>
+  </h2>
+  
+ <p align="justify">Zarząd WSM „Ochota” zawiadamia, że w dniu <b>11.04.2013r.</b> o godz. <b>12:00</b>
+w siedzibie Zarządu Spółdzielni w Warszawie przy ul. Pruszkowskiej 17 odbędzie się przetarg n/w lokalu mieszkalnego postawionego do dyspozycji Spółdzielni:</p>
+<p align="justify"><b>
+1. Lokal mieszkalny nr 8 położony w Warszawie przy ul. Dwudziestolatków 2 (pow. 52,40 m&#178; – III piętro) - umowa notarialna ustanowienia odrębnej własności.</b>
+</p><p align="justify">
+Wycena lokalu mieszkalnego dokonana przez rzeczoznawcę majątkowego jest do wglądu w biurze Zarządu Spółdzielni (ul. Pruszkowska 17; p.112; tel. 572-89-05, 572-89-07, 572-89-31).
+</p>
+<p align="justify">
+Lokal mieszkalny zostanie udostępniony do obejrzenia w dniach  3.04.2013r. - 10.04.2013r. Zamiar obejrzenia lokalu należy zgłosić w Administracji Osiedla :<br>
+- Al. Krakowska 268, tel.  846-29-82   
+</p>
+
+<p align="justify">
+Ofertę z ceną składa się pisemnie w zamkniętej kopercie z napisem: „PRZETARG na lokal nr …… przy ul. …………………………….” w sekretariacie Zarządu Spółdzielni do dnia   <b>11.04.2013r.</b>  (ul. Pruszkowska 17, pok. 211 do godz. 9:00).</p>
+
+<p align="justify">
+W przetargu mogą brać udział osoby, które wpłaciły na konto Spółdzielni ( <b>nr konta 08 1020 1156 0000 7802 0011 3167</b> )  wadium w wysokości 1/10 ceny lokalu.
+</p>
+
+<p align="justify">
+Wadium oferenta, który wygrał przetarg zalicza się na poczet wartości lokalu. Osoby zamierzające nabyć lokal przy pomocy kredytu bankowego, do oferty dołączają zaświadczenie z banku o wydaniu przyrzeczenia udzielenia kredytu. Pełnomocnicy oferentów muszą przedłożyć pełnomocnictwo notarialne.
+</p>
+
+<p align="justify">
+Po otwarciu kopert i zreferowaniu treści złożonych ofert przetarg odbywa się dalej ustnie. Postąpienie może wynosić nie mniej niż 1000zł. Zaoferowana cena przestaje wiązać, gdy biorący udział w przetargu licytant zaoferował cenę wyższą. Przewodniczący Komisji ogłasza – który z oferentów wygrał przetarg – oferując najwyższą cenę, podając jej wysokość – a następnie zamyka przetarg.
+</p>
+  
+<p align="justify">
+Nabywca lokalu po zakończeniu przetargu winien w ciągu 21 dni wpłacić na konto Spółdzielni w całości kwotę odpowiadającą wartości lokalu uzyskaną w przetargu.
+Jeżeli nabywca nie wykona w terminie warunków przetargu co do zapłaty ceny, traci wadium, a skutki wygranego przetargu wygasają. Osobom, które nie wygrały przetargu wadium zwracane jest na wskazane konto w ciągu 3 dni od dnia zamknięcia przetargu. WSM „Ochota” zastrzega sobie prawo odwołania przetargu bez podania przyczyny.
+</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">20.03.2013r.</font></p>
+  <h1><center>
+  Ogłoszenie
+  </center>
+  </h1>
+  
+ <p align="justify"> WSM "Ochota" Osiedle Gorlicka 02-130 Warszawa,ul. Gorlicka 1 telefon (22) 822-80-13 przeprowadza postępowanie o udzielenie zamówienia na wykonanie niżej wymienionych robót:</p>
+<p align="justify">
+1. remont elewacji wraz z remontem balkonów - budynek przy ul. Astronautów 12 <br>(dofinansowanie ze środków WDOŚ i GW),<br />
+2. remont elewacji wraz z remontem balkonów przy ul. Gorlicka 15b, Jankowska 7, Okińskiego 3,<br />
+3. przemurowanie kominów dachowych budynków przy ul. Astronautów 3, Astronautów 16a, Hynka 7,<br />
+4. wykonanie i wymiana świetlików dachowych w budynku przy ul. Okińskiego 10,
+</p><p align="justify">
+Oferty należy składać w zamkniętych kopertach w sekretariacie Administracji Osiedla Gorlicka Warszawa ul. Gorlicka 1 pokój nr 3 do dnia 03.04.2013r. do godziny 14:00.
+</p>
+<p align="justify">
+Materiały przetargowe są do nabycia w dziale technicznym Administracji pokój nr 3 - parter.Cena materiałów przetargowych 200 zł brutto. Przed przystąpieniem do przetargu oferenci winni zapoznać się z Regulaminem Przetargowym Spółdzielni oraz wzorem umów.
+</p>
+
+<p align="justify">
+Otwarcie ofert nastąpi w siedzibie Administracji w dniu 04.04.2013r. o godzinie 10:00. Ogłoszenie wyników przetargu nastąpi w dniu 18.04.2013r.  o godzinie 12:00. Spółdzielnia zastrzega sobie prawo dowolnego wyboru oferenta, zmiany zakresu robót do wysokości posiadanych środków oraz unieważnienia części lub całości przetargu bez podania przyczyny.</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">14.03.2013r.</font></p>
+  <h1><center>
+  Ogłoszenie
+  </center>
+  </h1>
+  
+ <p align="justify"> Zarząd WSM "Ochota"  organizuje przetarg na wynajem poniżej wymienionych lokali w pawilonie handlowo-usługowym przy ul. Żwirki i Wigury w Warszawie:</p>
+<p align="justify">
+1. lokal nr 1 - 239,8m&#178;,<br />
+2. lokal nr 2 - 56,2m&#178;,<br />
+3. lokal nr 3 - 51,6m&#178;,<br />
+4. lokal nr 4 - 29,4m&#178;,
+</p><p align="justify">
+Preferowana działalność handlowa, w tym asortyment spożywczy. Czas najmu: umowa na 10lat z możliwością przedłużenia. Preferowany oferent na całą powierzchnię. Możliwość aranżacji pod potrzeby najemcy. Wejście do lokali bezpośrednio z ulicy, na szerokości lokalu witryny. W lokalach nie przewiduje się prowadzenia działalności gastronomicznej.
+</p>
+<p align="justify">
+Szczegółowy wykaz powierzchni lokali, rzut pawilonu wraz z SIWZ możliwy do odbioru w pokoju 206 przy ul. Pruszkowskiej 17 tel <b>22 572 89 32</b>. Termin składania ofert upływa z dniem 29.03.2013r. o godzinie 12:00.
+</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">14.03.2013r.</font></p>
+  <h1><center>
+  Ogłoszenie
+  </center>
+  </h1>
+  
+ <p align="justify"> Zarząd WSM "Ochota"  organizuje przetarg na wynajem poniżej wymienionych lokali w pawilonie handlowo-usługowym przy ul. Żwirki i Wigury w Warszawie:</p>
+<p align="justify">
+1. lokal nr 1 - 239,8m&#178;,<br />
+2. lokal nr 2 - 56,2m&#178;,<br />
+3. lokal nr 3 - 51,6m&#178;,<br />
+4. lokal nr 4 - 29,4m&#178;,
+</p><p align="justify">
+Preferowana działalność handlowa, w tym asortyment spożywczy. Czas najmu: umowa na 10lat z możliwością przedłużenia. Preferowany oferent na całą powierzchnię. Możliwość aranżacji pod potrzeby najemcy. Wejście do lokali bezpośrednio z ulicy, na szerokości lokalu witryny. W lokalach nie przewiduje się prowadzenia działalności gastronomicznej.
+</p>
+<p align="justify">
+Szczegółowy wykaz powierzchni lokali, rzut pawilonu wraz z SIWZ możliwy do odbioru w pokoju 206 przy ul. Pruszkowskiej 17 tel <b>22 572 89 32</b>. Termin składania ofert upływa z dniem 29.03.2013r. o godzinie 12:00.
+</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">07.02.2013r.</font></p>
+  <h1><center>
+  Ogłoszenie
+  </center>
+  </h1>
+  
+ <p align="justify">WSM "Ochota" Osiedle Jadwisin, 02-123 Warszawa ul. Korotyńskiego 23 przeprowadza postępowanie o udzielenie zamówienia na wykonanie niżej wymienionych robót.</p>
+<p align="justify">
+1. Remont elewacji - 3 budynki<br />
+2. Remont pokryć dachów - 3 budynki<br />
+3. Remont posadzki i malowanie ścian w podziemnym garażu - 1 garaż<br />
+4. Remont balkonów tzw. ambony - 1 budynek
+</p><p align="justify">
+Oferty w zamkniętych kopertach należy składać w sekretariacie Osiedla pokój nr 36 do dnia 18.02.2013r.  do godziny 9:00. Otwarcie ofert nastąpi w dniu 19.02.2013r o godzinie 10:00 w siedzibie Administracji Osiedla.</p>
+<p align="justify">
+Materiały przetargowe do odebrania w Administracji Osiedla pokój nr 25 w godzinach 8:00 - 14:00 tel. 22 846 14 67 w. 115 Tomasz Wojcieski, po uprzednim wniesieniu opłaty.Cena materiałów przetargowych - 300 zł.</p><p align="justify">
+Opłaty należy dokonać na konto: <strong>88 1020 1055 0000 9702 00 97 7157</strong>.</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">05.02.2013r.</font></p>
+  <h1><center>
+  Ogłoszenie
+  </center>
+  </h1>
+  
+ <p align="justify"> WSM "Ochota" Osiedle Gorlicka 02-130 Warszawa, ul. Gorlicka 1 telefon (22) 822 80 13 przeprowadza postępowanie o udzielenie zamówienia na wykonanie niżej wymienionych robót:</p>
+<p align="justify">
+1. Doposażenie w instalację ciepłej wody oraz remont instalacji wodno-kanalizacyjnej - 2 budynki
+</p><p align="justify">
+Oferty należy składać w zamkniętych kopertach w sekretariacie Administracji Osiedla Gorlicka - Warszawa, ul. Gorlicka 1 pokój nr 3 do dnia 18.02.2013r. do godziny 15:00.</p>
+<p align="justify">
+Materiały przetargowe są do nabycia w dziale technicznym Administracji pokój nr 3 - parter.
+Cena materiałów przetargowych - 300 zł brutto.
+</p><p align="justify">
+Przed przystąpieniem do przetargu oferenci winni zapoznać się z Regulaminem Przetargowym Spółdzielni oraz wzorem umów. 
+</p><p align="justify">
+Otwarcie ofert nastąpi w siedzibie Administracji w dniu 19.02.2013r. o godzinie 12:00.
+Ogłoszenie wyników przetargu nastąpi w dniu 26.02.2013r. o godzinie 12:00.
+</p><p align="justify">
+Spółdzielnia zastrzega sobie prawo dowolnego wyboru oferenta, zmiany zakresu robót do wysokości posiadanych środków oraz unieważnienia części lub całośći przetargu bez podania przyczyny.
+  </p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">04.02.2013r.</font></p>
+  <h1><center>Zawiadomienie</center>
+  </h1>
+  <p><b><center>o przetargu lokali mieszkalnych w WSM &quot;Ochota&quot;</center></b></p>
+  <p align="justify">Zarząd WSM "Ochota" zawiadamia, że w dniu <strong>14.02.2013r.</strong> o godzinie <strong>12:00</strong> w siedzibie Zarządu Spółdzielni w Warszawie przy ul. Pruszkowskiej 17 odbędzie się przetarg niżej wymienionych lokali mieszkalnych postawionych  do dyspozycji Spółdzielni:</p>
+  <p align="justify">
+    <strong>1. Lokal mieszkalny nr 29 położony w Warszawie przy ul. 1-go Sierpnia 45 (powierzchnia 37,00 m&#178; - III piętro)<br /> - umowa notarialna ustanowienia odrębnej własności.</strong></p>
+ <p align="justify"><strong>
+2. Lokal mieszkalny nr 3 położony w Warszawie przy ul. Baleya 12 (powierzchnia 38,30 m&#178; - parter)<br /> - umowa 
+
+notarialna ustanowienia odrębnej własności.</strong></p>
+ <p align="justify"><strong>
+
+3. Lokal mieszkalny nr 1 położony w Warszawie przy ul. Geodetów 4 (powierzchnia 36,50 m&#178; - parter)<br /> - umowa 
+
+notarialna ustanowienia odrębnej własności.</strong></p>
+ <p align="justify"><strong>
+
+4. Lokal mieszkalny nr 37 położony w Warszawie przy ul. Hynka 5 (powierzchnia 42,50 m&#178; - IV piętro) <br />- umowa 
+
+notarialna ustanowienia odrębnej własności.</strong></p>
+ <p align="justify"><strong>
+5. Lokal mieszkalny nr 1 położony w Warszawie przy ul. Tańskiego 7 (powierzchnia 50,60 m&#178; - IV piętro) <br />- umowa 
+
+notarialna ustanowienia odrębnej własności.
+  
+  </strong></p>
+  
+  
+  <p align="justify">Wyceny lokali mieszkalnych dokonane przez rzeczoznawcę majątkowego są do wglądu w biurze Zarządu Spółdzielni  (ul. Pruszkowska 17; pokój 112; telefon: (22) 572 89 05, 572 89 07, 572 89 31).</p>
+  <p align="justify">Lokale mieszkalne zostaną udostępnione do obejrzenia w dniach 06.02.2013r. - 13.02.2013r. Zamiar obejrzenia lokalu należy zgłosić w Administracji Osiedla:</p>
+  <ul>
+<li> Al. Krakowska 268, tel. (22) 849 29 82 - dla pozycji 1</li>
+<li> ul. Gorlicka 1, tel. (22) 658 28 10 - dla pozycji 2</li>
+<li> ul. Korotyńskiego 23, tel. (22) 846 14 67 - dla pozycji 3</li>
+<li> ul. Hynka 7, tel. (22) 846 02 71 - dla pozycji 4,5</li></ul>
+  <p align="justify">Ofertę z ceną składa się pisemnie w zamkniętej kopercie z napisem "PRZETARG" na lokal nr...... przy ul. ............. " w sekretariacie Zarządu Spółdzielni do dnia <strong>14.02.2013r.</strong> przy ul. Przyszkowskiej 17, pokój 211 
+do godziny 9:00.</p>
+  <p align="justify">W przetargu mogą brać udział osoby, które wpłaciły na konto Spółdzielni (<strong>nr konta: 08 1020 1156 0000 7802 0011 3167</strong>) wadium w wysokości 1/10 ceny lokalu.</p>
+  <p align="justify">Wadium oferenta, który wygrał przetarg zalicza się na poczet wartości lokalu. Osoby zamierzające nabyć lokal przy pomocy kredytu bankowego, do oferty dołączają zaświadczenie z banku o wydaniu przyrzeczenia udzielenia kredytu. Pełnomocnicy oferentów muszą przedłożyć pełnomocnictwo notarialne.</p>
+  <p align="justify">Po otwarciu kopert i zreferowaniu treści złożonych ofert przetarg odbywa się dalej ustnie. Postąpienie może 
+
+wynosić nie mniej niż 1000zł. Zaoferowana cena przestaje wiązać, gdy biorący udział w przetargu licytant 
+
+zaoferował cenę wyższą. Przewodniczący Komisji ogłasza - który z oferentów wygrał przetarg - oferując najwyższą 
+
+cenę, podając jej wysokość - a następnie zamyka przetarg.</p>
+<p align="justify">
+Nabywca lokalu po zakończeniu przetargu winien w ciągu 21 dni wpłacić na konto Spółdzielni w całości kwotę 
+
+odpowiadającą wartości lokalu uzyskaną w przetargu. Jeżeli nabywca nie wykona w terminie warunków przetargu co 
+
+do zapłaty ceny, traci wadium, a skutki wygranego przetargu wygasają. Osobom, które nie wygrały przetargu 
+
+wadium zwracane jest na wskazane konto w ciągu 3 dni od dnia zamknięcia przetargu.</p>
+
+<p align="justify">WSM "Ochota" zastrzega sobie prawo odwołania przetargu bez podania przyczyny.</p>
+
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">21.01.2013r.</font></p>
+  <h1><center>
+  Ogłoszenie
+  </center>
+  </h1>
+  
+ <p align="justify">WSM "Ochota" Osiedla Jadwisin 02-123 Warszawa, ul. Korotyńskiego 23 przeprowadza postępowanie o udzielenie zamówienia na wykonanie niżej wymienionych robót.</p>
+<p align="justify">
+I. ROBOTY SANITARNE:
+<br /><br />
+1. Wymiana instalacji c.o. - 1 budynek<br />
+2. Wymiana wodomierzy na radiowe - 5 budynków<br />
+3. Remont hydroforni
+</p><p align="justify">
+Oferty w zamkniętych kopertach należy składać w sekretariacie Osiedla pokój nr 36 do dnia 30.01.2013r. do godziny 12:00. Otwarcie ofert nastąpi w dniu 31.01.2013r. o godzinie 10:00 w siedzibie Administracji Osiedla.</p>
+<p align="justify">
+II. ROBOTY BUDOWLANE:
+<br /><br />
+1. Remont schodów wejściowych - 2 budynki + 1 pawilon handlowy<br />
+2. Remont ślusarki okiennej klatek schodowych - 1 budynek<br />
+3. Remont klatek schodowych - 2 budynki</p>
+
+<p align="justify">
+Oferty w zamkniętych kopertach należy składać w sekretariacie Osiedla pokój nr 36 do dnia 31.01.2013r. do godziny 12:00. Otwarcie ofert nastąpi w dniu 01.02.2013r. o godzinie 10:00 w siedzibie Administracji Osiedla.</p>
+
+<p align="justify">
+Materiały przetargowe do odebrania w Administracji Osiedla pokój nr 25 tel. (22) 846 14 67 w. 115 - Pan Tomasz Wojcieski. Cena materiałów przetargowych - 300 zł.</p>
+
+
+<p align="justify">
+Opłaty należy dokonać na konto: <strong>88 1020 1055 0000 9702 00 97 7157</strong>.</p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+<div id="news">
+<p align="right"><font color="#CCCCCC">14.01.2013r.</font></p>
+  <h1><center>
+  Ogłoszenie
+  </center>
+  </h1>
+  
+ <p align="justify">WSM "Ochota" Osiedle Gorlicka 02-130 Warszawa, ul. Gorlicka 1 telefon (22) 822 80 13 przeprowadza postępowanie o udzielenie zamówienia na wykonanie niżej wymienionych robót:</p>
+<p align="justify">
+1. Doposażenie w instalację ciepłej wody oraz remont instalacji wodno-kanalizacyjnej - 3 budynki<br />
+2. wymiana wodomierzy na radiowe - 5 budynków<br />
+3. Wykonanie pomiarów ochronnych w lokalach, po wymianie wodomierzy - 5 budynków
+</p>
+
+<p align="justify">
+  Oferty należy składać w zamkniętych kopertach w sekretariacie Administracji Osiedla Gorlicka Warszawa, ul. Gorlicka 1 pokój nr 3 do dnia 25.01.2013r. do godziny 13:00.</p>
+
+<p align="justify">
+Materiały przetargowe są do nabycia w dziale technicznym Administracji pokój nr 3 - parter. Cena materiałów przetargowych - 300 zł brutto.</p>
+
+<p align="justify">
+Przed przystąpieniem do przetargu oferenci winni zapoznać się z Regulaminem Przetargowym Spółdzielni oraz wzorem umów.</p>
+
+<p align="justify">
+Otwarcie ofert nastąpi w siedzibie Administracji w dniu 28.01.2013r. o godzinie 12:00. Ogłoszenie wyników przetargu nastąpi w dniu 04.02.2013r. o godzinie 12:00.</p>
+
+<p align="justify">
+Spółdzielnia zastrzega sobie prawo dowolnego wyboru oferenta, zmiany zakresu robót do wysokości posiadanych środków oraz unieważnienia części lub całości przetargu bez podania przyczyny.</strong></p>
+  
+  <p align="right"><strong>ZARZĄD WSM &quot;OCHOTA&quot;</strong></p>
+</div>
+
+
+</div>
+<div id="sidebar">
+<center>
+    <a href="http://smochota.no-ip.biz:3357/apex/f?p=110:1" target="new" border="0"><img src="images/bok1.jpg"></a><br /><br />
+    <a href="uniqa.html" border="0"><img src="images/uniqua.gif"></a><br /><br />
+	<a href="wfosigw.html" border="0"><img src="images/WFOSiGW_logo.jpg"></a></br/><br/>
+	<a href="lokale.html"><img src="images/lokale.jpg" border="0"></a><br/><br/>
+	<a href="klubStokrotka.html"><img src="images/stokrotka.jpg" border="0"></a><br /><br />
+    <a href="klubJedynka.html"><img src="images/jedynka.jpg" border="0"></a><br />
+	
+    </center>
+
+</div>
+    
+    </div>
+    
+<div class="clear"></div>
+
+<div id="footer">
+<table width="976"><tr><td>
+Copyright &#169; by WSM OCHOTA : Warszawska Spółdzielnia Mieszkaniowa "Ochota" 2015r.</td><td align="right"><img src="images/logo_m.png" width="18" height="18" alt="StudioAkcja"></td></tr></table>
+</div>
+<br />
+
+</div>
+</body>
+</html>
