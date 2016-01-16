@@ -1,0 +1,14 @@
+<table class="table table-striped">
+    <tr>
+        <th>Data dodania</th>
+        <th>Tytuł</th>
+        <th>Opcje</th>
+    </tr>
+<?php foreach($viewData['newsList'] as $news){ ?>
+    <tr>
+        <td><?= $news->getDate() ?></td>
+        <td><?= $news->getTitle() ?></td>
+        <td><a href="/admin/news/edit?id=<?= $news->getId() ?>" class="btn btn-primary">Edytuj</a></td>
+    </tr>
+<?php } ?>
+</table>

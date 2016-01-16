@@ -39,11 +39,19 @@ class Wsm_Db{
         while($row = mysql_fetch_assoc($result)){
             $newRow = array();
             foreach($row as $k => $v){
-                $newRow[$k] = html_entity_decode($v);
+                $newRow[$k] = $this->escapeDecode($v);
             }
             array_push($list, $newRow);
         }
         return $list;
+    }
+    
+    public static function escape($string){
+        return htmlspecialchars($string);
+    }
+    
+    private function escapeDecode($string){
+        return htmlspecialchars_decode($string);
     }
     
     public function update($query){

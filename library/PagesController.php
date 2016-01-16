@@ -24,8 +24,7 @@ class PagesController extends AbstractController{
                 $pageDb->save($page);
                 $this->redirect('pages/index?msg=saved');
             }catch(Exception $e){
-                d($e);
-                die;
+
             }
         }
         $this->redirect('pages/index?msg=save_error');

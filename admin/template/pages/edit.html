@@ -3,11 +3,11 @@
   <input type="hidden" name="id" value="<?= $page->getId() ?>" />
   <div class="form-group">
     <label for="title">Tytuł</label>
-    <input class="form-control" name="title" value="<?= $page->getTitle() ?>"/>
+    <input class="form-control" name="title" value="<?= Wsm_Form::encode($page->getTitle()) ?>"/>
   </div>
   <div class="form-group">
     <label for="content">Treść</label>
-    <textarea class="form-control" name="content"><?= $page->getContent() ?></textarea>
+    <textarea class="form-control" name="content"><?= Wsm_Form::encode($page->getContent()) ?></textarea>
   </div>
   <button type="submit" class="btn btn-primary">Zapisz</button>
   <a href="/admin/pages" class="btn btn-warning">Anuluj</a>

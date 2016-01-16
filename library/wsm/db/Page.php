@@ -47,14 +47,10 @@ class Wsm_Db_Page{
         $content = $page->getContent();
         $title = $page->getTitle();
         $q = 'update pages set ';
-        $q .= 'title=\'' . $this->escape($title) . '\', ';
-        $q .= 'content=\'' . $this->escape($content) . '\' ';
+        $q .= 'title=\'' . Wsm_Db::escape($title) . '\', ';
+        $q .= 'content=\'' . Wsm_Db::escape($content) . '\' ';
         $q .= 'where id=\'' . $page->getId() . '\' limit 1';
         Wsm_Db::getInstance()->update($q);
-    }
-    
-    private function escape($string){
-        return htmlentities($string);
     }
     
 }
