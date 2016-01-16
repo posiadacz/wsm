@@ -1,16 +1,29 @@
 <?php 
 require_once 'library/autoloader.php';
 
-//$_REQUEST['REQUEST_URI']
-$url = 'spoldzielnia.html';
+$surl = $_SERVER['REQUEST_URI'];
+$urlControllerActionParts = explode('?', $surl);
+$urlControllerAction = $urlControllerActionParts[0];
+$urlParts = explode('/', $urlControllerAction);
+$url = !empty($urlParts[1]) ? $urlParts[1] : 'index.html';
 
-$dbPage = new Wsm_Db_Page();
-$page = $dbPage->getByUrl($url);
+try{
+    $dbPage = new Wsm_Db_Page();
+    $page = $dbPage->getByUrl($url);
+    if($page != null){
+        $title = $page->getTitle();
+        $content = $page->getContent();
+        $url = $url;
+    }
+}catch(Exception $e){
 
-$title = $page->getTitle();
-$content = $page->getContent();
-$url = $url;
+}
 
+if($page == null){
+    $title = '404';
+    $content = 'Strona nie istnieje.';
+    $url = '404.html';
+}
 
 include('template/header.html');
 //content

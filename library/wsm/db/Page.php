@@ -33,6 +33,9 @@ class Wsm_Db_Page{
     }    
     
     private function parseRow($row){
+        if($row == null){
+            return null;
+        }
         $page = new Wsm_Page();
         $page->setId($row['id']);
         $page->setTitle($row['title']);
