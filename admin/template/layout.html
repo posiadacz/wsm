@@ -4,9 +4,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Spółdzielnia Mieszkaniowa WSM Ochota</title>
     <link href="/admin/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/admin/static/css/global.css" rel="stylesheet" type="text/css">
 </head>
     <body>
         
-        <?php include($template) ?>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/admin">WSM Ochota</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/admin/">Aktualności</a></li>
+            <li><a href="/admin/pages">Strony statyczne</a></li>
+            <li><a href="/admin/">Dokumenty</a></li>
+            <li><a href="/admin/">Wyloguj się</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        <div class="starter-template">
+            <h1><?php echo $templateTitle; ?></h1>
+            <?php include($template) ?>
+        </div>
+    </div>
     </body>
 </html>
