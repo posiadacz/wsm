@@ -29,6 +29,5 @@ class Wsm_Page{
     }
     
     
-    
 }
 

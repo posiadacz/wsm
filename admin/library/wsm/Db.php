@@ -24,7 +24,7 @@ class Wsm_Db{
         mysql_select_db("wsmochota", $this->connection);
         mysql_set_charset("utf8", $this->connection);
         
-        if($this->connection->connect_error){
+        if(!empty(mysql_error($this->connection))){
             throw new Exception("Db connection error");
         }
     }
@@ -37,9 +37,20 @@ class Wsm_Db{
         $result = mysql_query($query, $this->connection);
         $list = array();
         while($row = mysql_fetch_assoc($result)){
-            array_push($list, $row);
+            $newRow = array();
+            foreach($row as $k => $v){
+                $newRow[$k] = html_entity_decode($v);
+            }
+            array_push($list, $newRow);
         }
         return $list;
+    }
+    
+    public function update($query){
+        mysql_query($query, $this->connection);
+        if(!empty($error = mysql_error($this->connection))){
+            throw new Exception($error);
+        }
     }
     
     

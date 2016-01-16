@@ -8,7 +8,6 @@ class AbstractController{
 
     }
     
-    
     protected function addToView($key, $value){
         $this->viewData[$key] = $value;
     }
@@ -17,8 +16,22 @@ class AbstractController{
         return $this->viewData;
     }
     
+    protected function has($key){
+        return !empty($_POST[$key]) || !empty($_GET[$key]);
+    }    
+    
     protected function get($key){
-        return $_GET[$key];
+        if(!empty($_POST[$key])){
+            return $_POST[$key];
+        }else if (!empty($_GET[$key])){
+            return $_GET[$key];
+        }
+        return null;
+    }
+    
+    protected function redirect($url){
+        header('Location: /admin/' . $url);
+        die;
     }
 }
 

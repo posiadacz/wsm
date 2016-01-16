@@ -1,5 +1,6 @@
 <? $page = $viewData['page'] ?>
-<form>
+<form method="post" action="/admin/pages/save">
+  <input type="hidden" name="id" value="<?= $page->getId() ?>" />
   <div class="form-group">
     <label for="title">Tytuł</label>
     <input class="form-control" name="title" value="<?= $page->getTitle() ?>"/>
