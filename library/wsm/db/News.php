@@ -3,7 +3,7 @@
 class Wsm_Db_News{
     
     public function getList(){
-        $q = 'select * from news order by title';
+        $q = 'select * from news order by date desc';
         $rows = Wsm_Db::getInstance()->query($q);
         return $this->getListFromRows($rows);
     }
@@ -40,6 +40,15 @@ class Wsm_Db_News{
     }
     
     public function save($news){
+        $id = $news->getId();
+        if(!empty($id)){
+            $this->update($news);
+        }else{
+            $this->insert($news);
+        }
+    }
+    
+    private function update($news){
         $content = $news->getContent();
         $title = $news->getTitle();
         $signature = $news->getSignature();
@@ -53,5 +62,18 @@ class Wsm_Db_News{
         $q .= 'where id=\'' . $news->getId() . '\' limit 1';
         Wsm_Db::getInstance()->update($q);
     }
+    
+    private function insert($news){
+        $content = $news->getContent();
+        $title = $news->getTitle();
+        $signature = $news->getSignature();
+        $date = $news->getDate();
+        
+        $q = 'insert into news(title, content, date, signature) ';
+        $q .= 'values(\'' . Wsm_Db::escape($title) . '\', \'' . Wsm_Db::escape($content) . '\', \'' . $date . '\', \'' . Wsm_Db::escape($signature) . '\' ';
+        $q .= ')';
+        Wsm_Db::getInstance()->update($q);
+    }
+    
     
 }

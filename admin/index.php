@@ -3,6 +3,8 @@ session_start();
 
 require_once 'library/autoloader.php';
 
+date_default_timezone_set('Europe/Warsaw'); 
+
 function d($val){
     var_dump($val);
     echo '<br />';

@@ -1,0 +1,22 @@
+<? $news = $viewData['news'] ?>
+<form method="post" action="/admin/news/save">
+  <input type="hidden" name="id" value="<?= $news->getId() ?>" />
+  <div class="form-group">
+    <label for="title">Tytuł</label>
+    <input class="form-control" name="title" value="<?= Wsm_Form::encode($news->getTitle()) ?>"/>
+  </div>
+  <div class="form-group">
+    <label for="date">Data</label>
+    <input class="form-control" name="date" value="<?= $news->getDate() ?>"/>
+  </div>
+  <div class="form-group">
+    <label for="content">Treść</label>
+    <textarea class="form-control" name="content"><?= Wsm_Form::encode($news->getContent()) ?></textarea>
+  </div>
+  <div class="form-group">
+    <label for="signature">Podpis</label>
+    <input class="form-control" name="signature" value="<?= Wsm_Form::encode($news->getSignature()) ?>"/>
+  </div>
+  <button type="submit" class="btn btn-primary">Zapisz</button>
+  <a href="/admin/news" class="btn btn-warning">Anuluj</a>
+</form>
