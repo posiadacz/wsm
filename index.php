@@ -32,6 +32,9 @@ try{
         }else{
             $controller->$action();
         }
+    }else if($url == 'wideo.html'){
+        $controller = new Front_VideoController();
+        $controller->indexAction();
     }else{
         $controller = new Front_PagesController();
         $controller->indexAction($url);  

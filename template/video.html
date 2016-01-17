@@ -1,0 +1,7 @@
+<?php foreach($viewData['videoList'] as $video){ ?>
+
+<div class="news">
+    <br />
+    <iframe width="640" height="360" src="http://www.youtube.com/embed/<?= $video->getYoutube() ?>" frameborder="0" allowfullscreen=""></iframe>
+</div>
+<?php } ?>
