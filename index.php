@@ -9,26 +9,25 @@ $urlControllerAction = $urlControllerActionParts[0];
 $urlParts = explode('/', $urlControllerAction);
 $url = !empty($urlParts[1]) ? $urlParts[1] : 'index.html';
 
+$template = 'default.html';
 try{
-    $dbPage = new Wsm_Db_Page();
-    $page = $dbPage->getByUrl($url);
-    if($page != null){
-        $title = $page->getTitle();
-        $content = $page->getContent();
-        $url = $url;
-    }
+//news
+if($url == 'index.html'){
+    $controller = new Front_NewsController();
+    $controller->indexAction();
+    $template = 'news/index.html';
+}else{
+    $controller = new Front_PagesController();
+    $controller->indexAction($url);
+}
 }catch(Exception $e){
-
+    $controller = new Front_ErrorController();
+    $controller->indexAction();
 }
-
-if($page == null){
-    $title = '404';
-    $content = 'Strona nie istnieje.';
-    $url = '404.html';
-}
+$viewData = $controller->getViewData();
 
 include('template/header.html');
 //content
-echo $content;
+include('template/' . $controller->getTemplate());
 
 include('template/footer.html');

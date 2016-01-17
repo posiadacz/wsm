@@ -4,10 +4,6 @@ class AbstractController{
     
     private $viewData = array();
     
-    public function __construct() {
-
-    }
-    
     protected function addToView($key, $value){
         $this->viewData[$key] = $value;
     }
