@@ -1,0 +1,19 @@
+<table class="table table-striped">
+    <tr>
+        <th>Data dodania</th>
+        <th>Tytuł</th>
+        <th>Opcje</th>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><a href="/admin/auctions/add" class="btn btn-success">Nowy</a></td>
+    </tr>
+<?php foreach($viewData['auctionsList'] as $auction){ ?>
+    <tr>
+        <td><?= $auction->getDate() ?></td>
+        <td><?= $auction->getTitle() ?></td>
+        <td><a href="/admin/auctions/edit?id=<?= $auction->getId() ?>" class="btn btn-primary">Edytuj</a></td>
+    </tr>
+<?php } ?>
+</table>
