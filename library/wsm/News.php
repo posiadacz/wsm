@@ -23,6 +23,10 @@ class Wsm_News{
     public function getDate() {
         return $this->date;
     }
+    
+    public function getDateFormatted() {
+        return date_format(new DateTime($this->date), 'd.m.Y\r.');
+    }
 
     public function getSignature() {
         return $this->signature;
