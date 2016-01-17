@@ -1,0 +1,19 @@
+<div class="news">
+  <?php if($viewData['hasCurrent']){ ?>
+  <h2>Przetargi Spółdzielni Mieszkaniowej WSM "Ochota"</h2>
+  <ul>
+    <li> 
+        <a href="przetargi_biezace.html">Bieżące postępowania przetargowe</a>
+    </li>
+  </ul>
+  <?php } ?>
+  
+  <h2>Archiwum Przetargów Spółdzielni Mieszkaniowej WSM "Ochota"</h2>
+  <ul>
+      <?php foreach($viewData['years'] as $year){ ?>
+    <li> 
+        <a href="przetargi_<?= $year ?>.html">Postępowania przetargowe <?= $year ?>r.</a>
+    </li>
+    <?php } ?>
+  </ul>
+</div>

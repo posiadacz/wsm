@@ -1,0 +1,11 @@
+
+<?php foreach($viewData['auctionList'] as $auction){ ?>
+
+<div class="news">
+    <p align="right"><font color="#CCCCCC"><?= $auction->getDateFormatted(); ?></font></p>
+    <center><h2><?= $auction->getTitle(); ?></h2></center>
+    <p align="justify"><?= $auction->getContent(); ?></p>
+    <p align="right"><strong><?= $auction->getSignature(); ?></strong></p>
+</div>
+
+<?php } ?>

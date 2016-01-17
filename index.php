@@ -35,6 +35,21 @@ try{
     }else if($url == 'wideo.html'){
         $controller = new Front_VideoController();
         $controller->indexAction();
+    }else if(strpos($url, 'przetargi') !== false){
+        $controller = new Front_AuctionController();
+        if(preg_match("/\\d/", $url) > 0){
+            $action = 'archiveYearAction';
+            preg_match("/\\d+/", $url, $match);
+            $param = $match[0];
+        }else{
+            $action = str_replace('.html', '', $url) . 'Action';
+            $param = null;
+        }
+        if($param != null){
+            $controller->$action($param);
+        }else{
+            $controller->$action();
+        }
     }else{
         $controller = new Front_PagesController();
         $controller->indexAction($url);  
