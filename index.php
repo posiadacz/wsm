@@ -17,14 +17,25 @@ $url = !empty($urlParts[1]) ? $urlParts[1] : 'index.html';
 $template = 'default.html';
 try{
 //news
-if($url == 'index.html'){
-    $controller = new Front_NewsController();
-    $controller->indexAction();
-    $template = 'news/index.html';
-}else{
-    $controller = new Front_PagesController();
-    $controller->indexAction($url);
-}
+    if($url == 'index.html' || strpos($url, 'archiwum') !== false){
+        $controller = new Front_NewsController();
+        if(preg_match("/\\d/", $url) > 0){
+            $action = 'archiveYearAction';
+            preg_match("/\\d+/", $url, $match);
+            $param = $match[0];
+        }else{
+            $action = str_replace('.html', '', $url) . 'Action';
+            $param = null;
+        }
+        if($param != null){
+            $controller->$action($param);
+        }else{
+            $controller->$action();
+        }
+    }else{
+        $controller = new Front_PagesController();
+        $controller->indexAction($url);  
+    }
 }catch(Exception $e){
     $controller = new Front_ErrorController();
     $controller->indexAction();

@@ -2,10 +2,27 @@
 
 class Wsm_Db_News{
     
-    public function getList(){
-        $q = 'select * from news order by date desc';
+    public function getList($limit = null){
+        $limitStr = $limit != null ? ' limit ' . $limit : '';
+        $q = 'select * from news order by date desc' . $limitStr;
         $rows = Wsm_Db::getInstance()->query($q);
         return $this->getListFromRows($rows);
+    }
+    
+    public function getListByYear($year){
+        $q = 'select * from news where year(date)=\'' . $year . '\'order by date desc';
+        $rows = Wsm_Db::getInstance()->query($q);
+        return $this->getListFromRows($rows);
+    }
+    
+    public function getYears(){
+        $q = 'select year(date) from news GROUP BY YEAR(date) order by date desc';
+        $rows = Wsm_Db::getInstance()->query($q);
+        $list = array();
+        foreach($rows as $row){
+            array_push($list, $row['year(date)']);
+        }
+        return $list;
     }
     
     public function get($id){
