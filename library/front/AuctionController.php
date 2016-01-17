@@ -12,6 +12,9 @@ class Front_AuctionController extends Front_AbstractController{
         $auctionService = new Wsm_Db_Auction();
         $this->addToView('years', $auctionService->getYears());
         
+        $list = $auctionService->getCurrent();
+        $this->addToView('hasCurrent', !empty($list));
+        
     }
     
     private function setTemplate($template){
@@ -23,11 +26,21 @@ class Front_AuctionController extends Front_AbstractController{
     }
     
     public function archiveYearAction($year){
-        $this->setTitle('Przetargi - Postępowania przetargowe ' . $year . 'r.');
+        $this->setTitle('Postępowania przetargowe ' . $year . 'r.');
         $this->setUrl('przetargi_' . $year . '.html');
         $this->setTemplate('auction/list.html');
         $auctionService = new Wsm_Db_Auction();
         $list = $auctionService->getListByYear($year);
+        $this->addToView('auctionList', $list);
+    }
+    
+    public function przetargi_biezaceAction(){
+        $this->setTitle('Bieżące postępowania przetargowe');
+        $this->setUrl('przetargi_biezace.html');
+        $this->setTemplate('auction/list.html');
+        
+        $auctionService = new Wsm_Db_Auction();
+        $list = $auctionService->getCurrent();
         $this->addToView('auctionList', $list);
     }
     
