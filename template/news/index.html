@@ -1,1 +1,12 @@
 
+
+<?php foreach($viewData['newsList'] as $news){ ?>
+
+<div class="news">
+    <p align="right"><font color="#CCCCCC"><?= $news->getDate(); ?></font></p>
+    <center><h2><?= $news->getTitle(); ?></h2></center>
+    <p align="justify"><?= $news->getContent(); ?></p>
+    <p align="right"><strong><?= $news->getSignature(); ?></strong></p>
+</div>
+
+<?php } ?>

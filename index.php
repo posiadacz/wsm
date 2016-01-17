@@ -3,6 +3,11 @@ require_once 'library/autoloader.php';
 
 date_default_timezone_set('Europe/Warsaw'); 
 
+function d($val){
+    var_dump($val);
+    echo '<br />';
+}
+
 $surl = $_SERVER['REQUEST_URI'];
 $urlControllerActionParts = explode('?', $surl);
 $urlControllerAction = $urlControllerActionParts[0];
@@ -27,7 +32,5 @@ if($url == 'index.html'){
 $viewData = $controller->getViewData();
 
 include('template/header.html');
-//content
 include('template/' . $controller->getTemplate());
-
 include('template/footer.html');
