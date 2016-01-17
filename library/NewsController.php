@@ -2,6 +2,10 @@
 
 class NewsController extends AbstractController{
     
+    public function __construct(){
+        $this->setTitle('Aktualności');
+    }
+    
     public function indexAction(){
         $dbNews = new Wsm_Db_News();
         $list = $dbNews->getList();

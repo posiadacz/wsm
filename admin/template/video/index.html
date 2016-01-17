@@ -1,0 +1,19 @@
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Youtube</th>
+        <th>Opcje</th>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><a href="/admin/video/add" class="btn btn-success">Nowy</a></td>
+    </tr>
+<?php foreach($viewData['videoList'] as $video){ ?>
+    <tr>
+        <td><?= $video->getId() ?></td>
+        <td><?= $video->getYoutube() ?></td>
+        <td><a href="/admin/video/edit?id=<?= $video->getId() ?>" class="btn btn-primary">Edytuj</a></td>
+    </tr>
+<?php } ?>
+</table>

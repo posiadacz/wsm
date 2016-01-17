@@ -2,6 +2,10 @@
 
 class PagesController extends AbstractController{
     
+    public function __construct(){
+        $this->setTitle('Strony statyczne');
+    }
+    
     public function indexAction(){
         $pageDb = new Wsm_Db_Page();
         $this->addToView('pageList', $pageDb->getList());

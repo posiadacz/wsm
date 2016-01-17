@@ -25,7 +25,6 @@ $session = new Session();
 }*/
 
 $template = $controller . '/' . $action . '.html';
-$templateTitle = $controller . ' - ' . $action;
 
 
 $controllerName = ucfirst($controller) . 'Controller';
@@ -34,6 +33,7 @@ $actionName = ucfirst($action) . 'Action';
 $controllerObj = new $controllerName();
 $controllerObj->$actionName();
 $viewData = $controllerObj->getViewData();
+$viewData['menu'] = $controller;
 
 
 include('template/layout.html');

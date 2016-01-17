@@ -12,6 +12,10 @@ class AbstractController{
         return $this->viewData;
     }
     
+    protected function setTitle($title){
+        $this->addToView('templateTitle', $title);
+    }
+    
     protected function has($key){
         return !empty($_POST[$key]) || !empty($_GET[$key]);
     }    

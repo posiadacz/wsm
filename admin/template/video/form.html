@@ -1,0 +1,10 @@
+<? $video = $viewData['video'] ?>
+<form method="post" action="/admin/video/save">
+  <input type="hidden" name="id" value="<?= $video->getId() ?>" />
+  <div class="form-group">
+    <label for="youtube">Youtube</label>
+    <input class="form-control" name="youtube" value="<?= Wsm_Form::encode($video->getYoutube()) ?>"/>
+  </div>
+  <button type="submit" class="btn btn-primary">Zapisz</button>
+  <a href="/admin/video" class="btn btn-warning">Anuluj</a>
+</form>
