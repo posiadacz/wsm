@@ -1,0 +1,30 @@
+<? $news = $viewData['document'] ;
+$importance = $news->getImportance();
+?>
+<form method="post" action="/admin/documents/save" enctype="multipart/form-data">
+  <input type="hidden" name="id" value="<?= $news->getId() ?>" />
+  <div class="form-group">
+    <label for="title">Tytuł</label>
+    <input class="form-control" name="title" value="<?= Wsm_Form::encode($news->getTitle()) ?>"/>
+  </div>
+  <div class="form-group">
+    <label for="title">Plik</label>
+    <input type="file" name="file">
+    <br />
+        <?php 
+        if($news->hasFilename()){ ?>
+            Aktualny plik: <?= $news->getFilename(); ?>
+        <?php } ?>
+  </div>
+  <div class="form-group">
+    <label for="title">Waga</label>
+    <select name="importance">
+        <option value="0" <?php if($importance == '0'){ ?> selected<?php }?> >0</option>
+        <option value="1" <?php if($importance == '1'){ ?> selected<?php }?> >1</option>
+        <option value="2" <?php if($importance == '2'){ ?> selected<?php }?> >2</option>
+    </select>
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Zapisz</button>
+  <a href="/admin/documents" class="btn btn-warning">Anuluj</a>
+</form>

@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <tr>
+        <th>Tytuł</th>
+        <th>Opcje</th>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><a href="/admin/documents/add" class="btn btn-success">Nowy</a></td>
+    </tr>
+<?php foreach($viewData['list'] as $doc){ ?>
+    <tr>
+        <td><?= $doc->getTitle() ?></td>
+        <td><a href="/admin/documents/edit?id=<?= $doc->getId() ?>" class="btn btn-primary">Edytuj</a></td>
+    </tr>
+<?php } ?>
+</table>
