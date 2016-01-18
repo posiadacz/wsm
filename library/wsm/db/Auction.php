@@ -10,13 +10,13 @@ class Wsm_Db_Auction{
     }
     
     public function getListByYear($year){
-        $q = 'select * from auctions where year(expiryDate)=\'' . $year . '\'order by date desc';
+        $q = 'select * from auctions where year(date)=\'' . $year . '\'order by date desc';
         $rows = Wsm_Db::getInstance()->query($q);
         return $this->getListFromRows($rows);
     }
     
     public function getYears(){
-        $q = 'select year(date) from auctions GROUP BY YEAR(expiryDate) order by date desc';
+        $q = 'select year(date) from auctions GROUP BY YEAR(date) order by date desc';
         $rows = Wsm_Db::getInstance()->query($q);
         $list = array();
         foreach($rows as $row){
