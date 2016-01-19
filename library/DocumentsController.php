@@ -30,10 +30,14 @@ class DocumentsController extends AbstractController{
         $news->setImportance($this->get('importance'));
 
         $file = $_FILES['file'];
-        if(!empty($file)){
+        if(!empty($file) && !empty($file['name'])){
             $filename = $file['name'];
             $uploadDir = getcwd() . '/../../documents/';
-            if(!move_uploaded_file($file['tmp_name'], $uploadDir  .  $filename)){
+            $filePath = $uploadDir  .  $filename;
+            if(file_exists($filePath)){
+                unline($filePath);
+            }
+            if(!move_uploaded_file($file['tmp_name'], $filePath)){
                 $this->redirect('documents/index?msg=save_error'); 
             }
             $news->setFilename($filename);        

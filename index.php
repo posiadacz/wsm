@@ -35,6 +35,9 @@ try{
     }else if($url == 'wideo.html'){
         $controller = new Front_VideoController();
         $controller->indexAction();
+    }else if($url == 'dokumenty.html'){
+        $controller = new Front_DocumentsController();
+        $controller->indexAction();
     }else if(strpos($url, 'przetargi') !== false){
         $controller = new Front_AuctionController();
         if(preg_match("/\\d/", $url) > 0){

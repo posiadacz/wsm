@@ -1,0 +1,37 @@
+<div class="news">
+    
+    
+    <center>
+  <h2>Dokumenty do Pobrania</h2>
+  <br><br>
+  
+  <table width="620" border="0" cellspacing="0">
+      <tbody>
+    <?php 
+    $i = 0;
+    foreach($viewData['list'] as $doc){ 
+    $i++;
+    $style = $i%2 > 0 ? 'bgcolor="#c5ddf5"' : '';
+    $titleStyle = '';
+    switch($doc->getImportance()){
+        case '2':
+            $titleStyle='font-weight: bold; color: red;';
+        break;
+        case '1': 
+            $titleStyle='font-weight: bold';
+        break;
+    }
+    ?>
+    <tr>
+        <td <?=$style ?>>
+            <a href="http://dokumenty.wsmochota.com.pl/<?=$doc->getFilename() ?>" target="_blank" onmouseover="document.pdf<?=$i ?>.src='images/pdf.png'" onmouseout="document.pdf<?=$i ?>.src='images/pdf_grey.png'">
+                <p align="left" style="<?=$titleStyle ?>"><?= $doc->getTitle() ?></p>
+            </a>
+        </td>
+        <td align="right" <?=$style ?>><a href="http://dokumenty.wsmochota.com.pl/<?=$doc->getFilename() ?>" target="_blank" onmouseover="document.pdf<?=$i ?>.src='images/pdf.png'" onmouseout="document.pdf<?=$i ?>.src='images/pdf_grey.png'">
+                <img src="images/pdf_grey.png" name="pdf<?= $i ?>" border="0">
+    </tr>
+    <?php } ?>
+      </tbody>
+  </table>
+</div>
