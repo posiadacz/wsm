@@ -32,7 +32,7 @@ class DocumentsController extends AbstractController{
         $file = $_FILES['file'];
         if(!empty($file)){
             $filename = $file['name'];
-            $uploadDir = getcwd() . '/../dokumenty/';
+            $uploadDir = getcwd() . '/../../documents/';
             if(!move_uploaded_file($file['tmp_name'], $uploadDir  .  $filename)){
                 $this->redirect('documents/index?msg=save_error'); 
             }
