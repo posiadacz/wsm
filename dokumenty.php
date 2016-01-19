@@ -250,7 +250,7 @@ Znajdujesz sie w sekcji: <a href="dokumenty_menu.html">Dokumenty</a> &#8594 <a h
     
 <div id="content">
 
-<div id="news">
+<div class="news">
   <center>
   <h2>Materiały dla Członków Spółdzielni</h2>
   <br /></center>
