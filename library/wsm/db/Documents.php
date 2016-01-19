@@ -51,7 +51,7 @@ class Wsm_Db_Documents{
         $q = 'update documents set ';
         $q .= 'title=\'' . Wsm_Db::escape($news->getTitle()) . '\', ';
         $q .= 'filename=\'' . Wsm_Db::escape($news->getFilename()) . '\', ';
-        $q .= 'importance=\'' . $news->getImportance() . '\', ';
+        $q .= 'importance=\'' . $news->getImportance() . '\' ';
         $q .= 'where id=\'' . $news->getId() . '\' limit 1';
         Wsm_Db::getInstance()->update($q);
     }
