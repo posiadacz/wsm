@@ -54,6 +54,8 @@ class DocumentsController extends AbstractController{
                 $this->redirect('documents/index?msg=save_error'); 
             }
             $news->setFilename($filename);        
+        }else{
+            $news->setFilename($this->get('filename'));
         }
 
         $newsDb = new Wsm_Db_Documents();
