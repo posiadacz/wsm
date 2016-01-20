@@ -6,7 +6,21 @@ class Wsm_Document{
     private $title;
     private $filename;
     private $importance;
+    private $type;
     
+    public function __construct($type = null){
+        $this->type = $type;
+    }
+    
+    public function getType() {
+        return $this->type;
+    }
+
+    public function setType($type) {
+        $this->type = $type;
+    }
+
+        
     public function getId() {
         return $this->id;
     }

@@ -2,8 +2,8 @@
 
 class Wsm_Db_Documents{
     
-    public function getList(){
-        $q = 'select * from documents where `deleted`=false order by importance desc, title asc';
+    public function getList($type){
+        $q = 'select * from documents where `deleted`=false and type=\'' . $type . '\' order by importance desc, title asc';
         $rows = Wsm_Db::getInstance()->query($q);
         return $this->getListFromRows($rows);
     }
@@ -35,6 +35,7 @@ class Wsm_Db_Documents{
         $news->setTitle($row['title']);
         $news->setFilename($row['filename']);
         $news->setImportance($row['importance']);
+        $news->setType($row['type']);
         return $news;
     }
     
@@ -63,7 +64,8 @@ class Wsm_Db_Documents{
         $q = 'update documents set ';
         $q .= 'title=\'' . Wsm_Db::escape($news->getTitle()) . '\', ';
         $q .= 'filename=\'' . Wsm_Db::escape($news->getFilename()) . '\', ';
-        $q .= 'importance=\'' . $news->getImportance() . '\' ';
+        $q .= 'importance=\'' . $news->getImportance() . '\', ';
+        $q .= 'type=\'' . $news->getType() . '\' ';
         $q .= 'where id=\'' . $news->getId() . '\' limit 1';
         Wsm_Db::getInstance()->update($q);
     }
@@ -74,8 +76,8 @@ class Wsm_Db_Documents{
         $importance = $news->getImportance();
 
         
-        $q = 'insert into documents(title, filename, importance) ';
-        $q .= 'values(\'' . Wsm_Db::escape($title) . '\', \'' . Wsm_Db::escape($filename) . '\', \'' . $importance . '\'';
+        $q = 'insert into documents(title, filename, importance, type) ';
+        $q .= 'values(\'' . Wsm_Db::escape($title) . '\', \'' . Wsm_Db::escape($filename) . '\', \'' . $importance . '\', \'' . $news->getType() . '\'';
         $q .= ')';
         Wsm_Db::getInstance()->update($q);
     }

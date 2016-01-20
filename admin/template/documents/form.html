@@ -3,7 +3,8 @@ $importance = $news->getImportance();
 ?>
 <form method="post" action="/admin/documents/save" enctype="multipart/form-data">
   <input type="hidden" name="id" value="<?= $news->getId() ?>" />
-  <input type="hidden" name="filename" value="<?= $news->getFilename() ?>" />
+  <input type="hidden" name="filename" class="js-filename" value="<?= $news->getFilename() ?>" />
+  <input type="hidden" name="type" value="<?= $news->getType() ?>" />
   <div class="form-group">
     <label for="title">Tytuł</label>
     <input class="form-control" name="title" value="<?= Wsm_Form::encode($news->getTitle()) ?>"/>
@@ -14,7 +15,9 @@ $importance = $news->getImportance();
     <br />
         <?php 
         if($news->hasFilename()){ ?>
-            Aktualny plik: <?= $news->getFilename(); ?>
+        Aktualny plik: <?= $news->getFilename(); ?> 
+        <span class="js-documentFileDelete btn btn-danger">Usuń plik</span>
+        <span class="js-documentFileDeleteStep2 text-muted" style="display:none;">Plik zostanie usunięty po zapisaniu zmian.</span>
         <?php } ?>
   </div>
   <div class="form-group">
@@ -27,5 +30,5 @@ $importance = $news->getImportance();
   </div>
  
   <button type="submit" class="btn btn-primary">Zapisz</button>
-  <a href="/admin/documents" class="btn btn-warning">Anuluj</a>
+  <a href="<?=$viewData['baseUrl'] ?>" class="btn btn-warning">Anuluj</a>
 </form>

@@ -2,13 +2,29 @@
 
 class DocumentsController extends AbstractController{
     
+    private $type;
+    
     public function __construct(){
-        $this->setTitle('Dokumenty');
+        $type = $this->get('type');
+        if(empty($type)){
+            $type = '1';
+        }
+        $this->type = $type;
+        $title = $type == '1' ? 'Dokumenty do pobrania' : 'Materiały dla członków spółdzielni';
+        $this->setTitle($title);
+        
+        $url = '/admin/documents?type=' . $type;
+        $this->setBaseUrl($url);
+        $this->addToView('type', $type);
+    }
+    
+    private function getType(){
+        return $this->type;
     }
     
     public function indexAction(){
         $db = new Wsm_Db_Documents();
-        $list = $db->getList();
+        $list = $db->getList($this->getType());
         $this->addToView('list', $list);
     }
     
@@ -18,7 +34,7 @@ class DocumentsController extends AbstractController{
     }
     
     public function addAction(){
-        $this->addToView('document', new Wsm_Document());
+        $this->addToView('document', new Wsm_Document($this->getType()));
     }
     
     public function deleteAction(){
@@ -27,10 +43,10 @@ class DocumentsController extends AbstractController{
             $doc->setId($this->get('id'));
             $dbService = new Wsm_Db_Documents();
             if($dbService->delete($doc)){
-                $this->redirect('documents/index?msg=deleted'); 
+                $this->redirect($this->getBaseUrl() . '&msg=deleted', true); 
             }
         }
-        $this->redirect('documents/index?msg=del_error'); 
+        $this->redirect($this->getBaseUrl() . '&msg=del_error'); 
     }
         
     
@@ -40,6 +56,7 @@ class DocumentsController extends AbstractController{
             $news->setId($this->get('id'));
         }
         $news->setTitle($this->get('title'));
+        $news->setType($this->get('type'));
         $news->setImportance($this->get('importance'));
 
         $file = $_FILES['file'];
@@ -51,7 +68,7 @@ class DocumentsController extends AbstractController{
                 unlink($filePath);
             }
             if(!move_uploaded_file($file['tmp_name'], $filePath)){
-                $this->redirect('documents/index?msg=save_error'); 
+                $this->redirect($this->getBaseUrl() . '&msg=save_error', true); 
             }
             $news->setFilename($filename);        
         }else{
@@ -61,9 +78,9 @@ class DocumentsController extends AbstractController{
         $newsDb = new Wsm_Db_Documents();
         try{
             $newsDb->save($news);
-            $this->redirect('documents/index?msg=saved');
+            $this->redirect($this->getBaseUrl() . '&msg=saved', true);
         }catch(Exception $e){
-            $this->redirect('documents/index?msg=save_error'); 
+            $this->redirect($this->getBaseUrl() . '&msg=save_error', true); 
         }      
     }
 }

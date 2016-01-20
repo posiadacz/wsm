@@ -2,7 +2,7 @@
     
     
     <center>
-  <h2>Dokumenty do Pobrania</h2>
+  <h2><?= $viewData['title'] ?></h2>
   <br><br>
   
   <table width="620" border="0" cellspacing="0">
@@ -24,9 +24,13 @@
     ?>
     <tr>
         <td <?=$style ?>>
+            <?php if($doc->hasFilename()){ ?>
             <a href="http://dokumenty.wsmochota.com.pl/<?=$doc->getFilename() ?>" target="_blank" onmouseover="document.pdf<?=$i ?>.src='images/pdf.png'" onmouseout="document.pdf<?=$i ?>.src='images/pdf_grey.png'">
+            <?php } ?>
                 <p align="left" style="<?=$titleStyle ?>"><?= $doc->getTitle() ?></p>
+            <?php if($doc->hasFilename()){ ?>
             </a>
+            <?php } ?>
         </td>
         <td align="right" <?=$style ?>><a href="http://dokumenty.wsmochota.com.pl/<?=$doc->getFilename() ?>" target="_blank" onmouseover="document.pdf<?=$i ?>.src='images/pdf.png'" onmouseout="document.pdf<?=$i ?>.src='images/pdf_grey.png'">
                 <img src="images/pdf_grey.png" name="pdf<?= $i ?>" border="0">

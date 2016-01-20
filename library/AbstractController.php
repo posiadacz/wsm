@@ -3,6 +3,16 @@
 class AbstractController{
     
     private $viewData = array();
+    private $baseUrl;
+    
+    protected function setBaseUrl($url){
+        $this->baseUrl = $url;
+        $this->addToView('baseUrl', $url);
+    }
+    
+    protected function getBaseUrl(){
+        return $this->baseUrl;
+    }
     
     protected function addToView($key, $value){
         $this->viewData[$key] = $value;
@@ -29,8 +39,11 @@ class AbstractController{
         return null;
     }
     
-    protected function redirect($url){
-        header('Location: /admin/' . $url);
+    protected function redirect($url, $complete = false){
+        if(!$complete){
+            $url = '/admin/' . $url;
+        }
+        header('Location: ' . $url);
         die;
     }
 }

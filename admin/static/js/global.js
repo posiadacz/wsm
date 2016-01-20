@@ -24,4 +24,10 @@ $(document).ready(function(){
    });
     
     
+   $('.js-documentFileDelete').click(function(){
+      $('.js-filename').val('');
+      $(this).hide();
+      $('.js-documentFileDeleteStep2').show();
+   }); 
+    
 });
