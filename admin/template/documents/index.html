@@ -1,16 +1,21 @@
 <table class="table table-striped">
     <tr>
         <th>Tytuł</th>
-        <th>Opcje</th>
+        <th colspan="2">Opcje</th>
     </tr>
     <tr>
         <td>&nbsp;</td>
-        <td><a href="/admin/documents/add" class="btn btn-success">Nowy</a></td>
+        <td  colspan="2"><a href="/admin/documents/add" class="btn btn-success">Nowy</a></td>
     </tr>
 <?php foreach($viewData['list'] as $doc){ ?>
     <tr>
         <td><?= $doc->getTitle() ?></td>
-        <td><a href="/admin/documents/edit?id=<?= $doc->getId() ?>" class="btn btn-primary">Edytuj</a></td>
+        <td>
+            <a href="/admin/documents/edit?id=<?= $doc->getId() ?>" class="btn btn-primary">Edytuj</a>
+        </td>
+        <td>
+            <a href="/admin/documents/delete?id=<?= $doc->getId() ?>" rel="Czy na pewno chcesz usunąć: <?= $doc->getTitleEncoded() ?>?" class="btn btn-danger js-confirm">Usuń</a>
+        </td>
     </tr>
 <?php } ?>
 </table>

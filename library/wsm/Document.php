@@ -14,6 +14,10 @@ class Wsm_Document{
     public function getTitle() {
         return $this->title;
     }
+    
+    public function getTitleEncoded() {
+        return htmlspecialchars($this->title);
+    }
 
     public function setId($id) {
         $this->id = $id;

@@ -21,6 +21,19 @@ class DocumentsController extends AbstractController{
         $this->addToView('document', new Wsm_Document());
     }
     
+    public function deleteAction(){
+        if($this->has('id')){
+            $doc = new Wsm_Document();
+            $doc->setId($this->get('id'));
+            $dbService = new Wsm_Db_Documents();
+            if($dbService->delete($doc)){
+                $this->redirect('documents/index?msg=deleted'); 
+            }
+        }
+        $this->redirect('documents/index?msg=del_error'); 
+    }
+        
+    
     public function saveAction(){
         $news = new Wsm_Document();
         if($this->has('id')){
@@ -35,7 +48,7 @@ class DocumentsController extends AbstractController{
             $uploadDir = getcwd() . '/../../documents/';
             $filePath = $uploadDir  .  $filename;
             if(file_exists($filePath)){
-                unline($filePath);
+                unlink($filePath);
             }
             if(!move_uploaded_file($file['tmp_name'], $filePath)){
                 $this->redirect('documents/index?msg=save_error'); 

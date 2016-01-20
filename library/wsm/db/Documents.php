@@ -3,7 +3,7 @@
 class Wsm_Db_Documents{
     
     public function getList(){
-        $q = 'select * from documents order by importance desc, title asc';
+        $q = 'select * from documents where `deleted`=false order by importance desc, title asc';
         $rows = Wsm_Db::getInstance()->query($q);
         return $this->getListFromRows($rows);
     }
@@ -45,6 +45,18 @@ class Wsm_Db_Documents{
         }else{
             $this->insert($news);
         }
+    }
+    
+    public  function delete($doc){
+        $id = $doc->getId();
+        if(!empty($id)){
+            $q = 'update documents set ';
+            $q .= 'deleted=true ';
+            $q .= 'where id=\'' . $id . '\' limit 1';
+            Wsm_Db::getInstance()->update($q);
+            return true;
+        }
+        return false;
     }
     
     private function update($news){

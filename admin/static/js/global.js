@@ -14,3 +14,14 @@ tinymce.init({
     '/style.css'
   ]
 });
+
+$(document).ready(function(){
+   $('.js-confirm').click(function(){
+       event.preventDefault();
+      if(confirm($(this).attr("rel"))){
+          $(location).attr('href', $(this).attr("href"));
+      }
+   });
+    
+    
+});
