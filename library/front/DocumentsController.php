@@ -12,7 +12,7 @@ class Front_DocumentsController extends Front_AbstractController{
             $type = '1';
         }
         if($type == '2'){
-            //$this->login();
+            $this->login();
         }
         $this->type = $type;
     }
@@ -28,6 +28,7 @@ class Front_DocumentsController extends Front_AbstractController{
         
         $dbService = new Wsm_Db_Documents();
         $this->addToView('list', $dbService->getList($this->getType()));
+        $this->addToView('type', $this->getType());
     }
     
 
@@ -38,13 +39,28 @@ class Front_DocumentsController extends Front_AbstractController{
     public function loginAction(){
         $this->setTitle('Materiały dla członków spółdzielni');
         $this->setUrl('dokumenty-login.html');
+        
+        $session = new Session();
+        
+        if($this->has('logout')){
+            $session->destroy();
+        }
+        
+        if($this->has('login') && $this->has('password')){
+            $login = $this->get('login');
+            $password = $this->get('password');
+            $db = new Wsm_Db_Users();
+            if($db->check($login, $password)){
+                $session->set('documentsUser', true);
+                $this->redirect('dokumenty.html?type=2', true);
+            }
+        }
         $this->template = 'documents/form.html';
     }
     
     private function login(){
         $session = new Session();
         if(!$session->has('documentsUser')){
-            
             $this->redirect('dokumenty-login.html', true);
         }
     }

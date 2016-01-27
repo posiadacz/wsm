@@ -1,7 +1,11 @@
 <div class="news">
     <center>
   <h2><?= $viewData['title'] ?></h2>
-  <br><br>
+  <br>
+  <?php if($viewData['type'] == '2'){ ?>
+<center><a href="/dokumenty-login.html?logout=1">Wyloguj</a></center>
+<?php } ?>
+  <br>
   <?php $lastCategory = '' ?>
   <table width="620" border="0" cellspacing="0">
       <tbody>
