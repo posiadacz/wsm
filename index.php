@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once 'library/autoloader.php';
 
 date_default_timezone_set('Europe/Warsaw'); 
@@ -35,9 +36,13 @@ try{
     }else if($url == 'wideo.html'){
         $controller = new Front_VideoController();
         $controller->indexAction();
-    }else if($url == 'dokumenty.html'){
+    }else if($url == 'dokumenty.html' || $url == 'dokumenty-login.html'){
         $controller = new Front_DocumentsController();
-        $controller->indexAction();
+        if($url == 'dokumenty.html'){
+            $controller->indexAction();
+        }else if($url == 'dokumenty-login.html'){
+            $controller->loginAction();
+        }
     }else if(strpos($url, 'przetargi') !== false){
         $controller = new Front_AuctionController();
         if(preg_match("/\\d/", $url) > 0){

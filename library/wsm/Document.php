@@ -7,6 +7,7 @@ class Wsm_Document{
     private $filename;
     private $importance;
     private $type;
+    private $category;
     
     public function __construct($type = null){
         $this->type = $type;
@@ -15,7 +16,16 @@ class Wsm_Document{
     public function getType() {
         return $this->type;
     }
+    
+    public function getCategory() {
+        return $this->category;
+    }
 
+    public function setCategory($category) {
+        $this->category = $category;
+    }
+
+    
     public function setType($type) {
         $this->type = $type;
     }

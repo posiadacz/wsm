@@ -9,6 +9,10 @@ $importance = $news->getImportance();
     <label for="title">Tytuł</label>
     <input class="form-control" name="title" value="<?= Wsm_Form::encode($news->getTitle()) ?>"/>
   </div>
+    <div class="form-group">
+    <label for="title">Kategoria</label>
+    <input class="form-control" name="category" value="<?= Wsm_Form::encode($news->getCategory()) ?>"/>
+  </div>
   <div class="form-group">
     <label for="title">Plik</label>
     <input type="file" name="file">

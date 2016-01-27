@@ -11,9 +11,20 @@
         <td>&nbsp;</td>
         <td  colspan="2"><a href="/admin/documents/add?type=<?=$viewData['type'] ?>" class="btn btn-success">Nowy</a></td>
     </tr>
-<?php foreach($viewData['list'] as $doc){ ?>
+<?php 
+$lastCategory = '';
+foreach($viewData['list'] as $doc){
+ if($lastCategory != $doc->getCategory()){ 
+    $lastCategory = $doc->getCategory();
+    ?>
     <tr>
-        <td><?= $doc->getTitle() ?></td>
+        <td><strong><?= $doc->getCategory() ?></strong></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <?php } ?>
+    <tr>
+        <td style="padding-left: 20px;"><?= $doc->getTitle() ?></td>
         <td>
             <a href="/admin/documents/edit?id=<?= $doc->getId() ?>&type=<?=$viewData['type'] ?>" class="btn btn-primary">Edytuj</a>
         </td>

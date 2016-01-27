@@ -57,6 +57,7 @@ class DocumentsController extends AbstractController{
         }
         $news->setTitle($this->get('title'));
         $news->setType($this->get('type'));
+        $news->setCategory($this->get('category'));
         $news->setImportance($this->get('importance'));
 
         $file = $_FILES['file'];

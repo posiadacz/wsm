@@ -3,7 +3,7 @@
 class Wsm_Db_Documents{
     
     public function getList($type){
-        $q = 'select * from documents where `deleted`=false and type=\'' . $type . '\' order by importance desc, title asc';
+        $q = 'select * from documents where `deleted`=false and type=\'' . $type . '\' order by if(category = \'\',1,0) asc, category asc, importance desc, title asc';
         $rows = Wsm_Db::getInstance()->query($q);
         return $this->getListFromRows($rows);
     }
@@ -36,6 +36,7 @@ class Wsm_Db_Documents{
         $news->setFilename($row['filename']);
         $news->setImportance($row['importance']);
         $news->setType($row['type']);
+        $news->setCategory($row['category']);
         return $news;
     }
     
@@ -65,7 +66,8 @@ class Wsm_Db_Documents{
         $q .= 'title=\'' . Wsm_Db::escape($news->getTitle()) . '\', ';
         $q .= 'filename=\'' . Wsm_Db::escape($news->getFilename()) . '\', ';
         $q .= 'importance=\'' . $news->getImportance() . '\', ';
-        $q .= 'type=\'' . $news->getType() . '\' ';
+        $q .= 'type=\'' . $news->getType() . '\', ';
+        $q .= 'category=\'' . $news->getCategory() . '\' ';
         $q .= 'where id=\'' . $news->getId() . '\' limit 1';
         Wsm_Db::getInstance()->update($q);
     }
@@ -74,10 +76,10 @@ class Wsm_Db_Documents{
         $title = $news->getTitle();
         $filename = $news->getFilename();
         $importance = $news->getImportance();
-
+        $category = $news->getCategory();
         
-        $q = 'insert into documents(title, filename, importance, type) ';
-        $q .= 'values(\'' . Wsm_Db::escape($title) . '\', \'' . Wsm_Db::escape($filename) . '\', \'' . $importance . '\', \'' . $news->getType() . '\'';
+        $q = 'insert into documents(title, filename, importance, type, category) ';
+        $q .= 'values(\'' . Wsm_Db::escape($title) . '\', \'' . Wsm_Db::escape($filename) . '\', \'' . $importance . '\', \'' . $news->getType() . '\', \'' . Wsm_Db::escape($category) . '\'';
         $q .= ')';
         Wsm_Db::getInstance()->update($q);
     }
