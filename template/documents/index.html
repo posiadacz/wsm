@@ -1,27 +1,35 @@
 <div class="news">
-    
-    
     <center>
   <h2><?= $viewData['title'] ?></h2>
   <br><br>
-  
+  <?php $lastCategory = '' ?>
   <table width="620" border="0" cellspacing="0">
       <tbody>
     <?php 
     $i = 0;
     foreach($viewData['list'] as $doc){ 
-    $i++;
-    $style = $i%2 > 0 ? 'bgcolor="#c5ddf5"' : '';
-    $titleStyle = '';
-    switch($doc->getImportance()){
-        case '2':
-            $titleStyle='font-weight: bold; color: red;';
-        break;
-        case '1': 
-            $titleStyle='font-weight: bold';
-        break;
-    }
+        $titleStyle = '';
+        switch($doc->getImportance()){
+            case '2':
+                $titleStyle='font-weight: bold; color: red;';
+            break;
+            case '1': 
+                $titleStyle='font-weight: bold';
+            break;
+        }
+
+        $i++;
+        $style = $i%2 > 0 ? 'bgcolor="#c5ddf5"' : '';
+        
+        if($lastCategory != $doc->getCategory()){ 
+           $lastCategory = $doc->getCategory();
+           $style = 'bgcolor="#c5ddf5"';
     ?>
+    <tr>
+        <td style="padding: 10px;"><strong><?=$doc->getCategory() ?></strong>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+<?php } ?>
     <tr>
         <td <?=$style ?>>
             <?php if($doc->hasFilename()){ ?>

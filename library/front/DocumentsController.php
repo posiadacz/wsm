@@ -12,7 +12,7 @@ class Front_DocumentsController extends Front_AbstractController{
             $type = '1';
         }
         if($type == '2'){
-            $this->login();
+            //$this->login();
         }
         $this->type = $type;
     }
