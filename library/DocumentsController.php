@@ -43,10 +43,26 @@ class DocumentsController extends AbstractController{
             $doc->setId($this->get('id'));
             $dbService = new Wsm_Db_Documents();
             if($dbService->delete($doc)){
-                $this->redirect($this->getBaseUrl() . '&msg=deleted', true); 
+                $this->redirect($this->getBaseUrl() . '&msg=saved', true); 
             }
         }
-        $this->redirect($this->getBaseUrl() . '&msg=del_error'); 
+        $this->redirect($this->getBaseUrl() . '&msg=save_error', true); 
+    }
+    
+        public function archiveAction(){
+        if($this->has('id')){
+            $doc = new Wsm_Document();
+            $doc->setId($this->get('id'));
+            $doc->setArchived(true);
+            $dbService = new Wsm_Db_Documents();
+            try{
+                $dbService->save($doc);
+                $this->redirect($this->getBaseUrl() . '&msg=saved', true); 
+            }catch(Exception $e){
+            
+            }
+        }
+        $this->redirect($this->getBaseUrl() . '&msg=save_error', true); 
     }
         
     

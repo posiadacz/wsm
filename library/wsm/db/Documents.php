@@ -6,7 +6,8 @@ class Wsm_Db_Documents{
         $categoryPart = $category != null ? ' and `category`=\'' . $category . '\'' : '';
         $q = 'select * from documents '
                 . 'where `deleted`=false and type=\'' . $type . '\' '
-                . $categoryPart
+                . $categoryPart .
+                " and `archived`='false'"  
                 . 'order by if(category = \'\',1,0) asc, `category` asc, `order` asc, `importance` desc, `title` asc';
         $rows = Wsm_Db::getInstance()->query($q);
         return $this->getListFromRows($rows);
@@ -42,6 +43,7 @@ class Wsm_Db_Documents{
         $news->setType($row['type']);
         $news->setCategory($row['category']);
         $news->setOrder($row['order']);
+        $news->setArchived($row['archived']);
         return $news;
     }
     
@@ -73,6 +75,7 @@ class Wsm_Db_Documents{
         $q .= 'importance=\'' . $news->getImportance() . '\', ';
         $q .= 'type=\'' . $news->getType() . '\', ';
         $q .= '`order`=\'' . $news->getOrder() . '\', ';
+        $q .= '`archived`=\'' . $news->getArchived() . '\', ';
         $q .= 'category=\'' . $news->getCategory() . '\' ';
         $q .= 'where id=\'' . $news->getId() . '\' limit 1';
         Wsm_Db::getInstance()->update($q);
@@ -84,14 +87,13 @@ class Wsm_Db_Documents{
         $importance = $news->getImportance();
         $category = $news->getCategory();
         
-        $q = 'insert into documents(title, filename, importance, type, category, order) ';
+        $q = 'insert into documents(title, filename, importance, type, category) ';
         $q .= 'values(\'' 
                 . Wsm_Db::escape($title) . '\', \'' 
                 . Wsm_Db::escape($filename) . '\', \'' 
                 . $importance . '\', \'' 
                 . $news->getType() . '\', \'' 
-                . Wsm_Db::escape($category) . '\', \'' 
-                . $news->getOrder() . '\'' ;
+                . Wsm_Db::escape($category) . '\'' ;
         $q .= ')';
         Wsm_Db::getInstance()->update($q);
     }

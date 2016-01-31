@@ -9,9 +9,18 @@ class Wsm_Document{
     private $type;
     private $category;
     private $order;
+    private $archived;
     
     public function __construct($type = null){
         $this->type = $type;
+    }
+    
+    public function getArchived() {
+        return $this->archived;
+    }
+
+    public function setArchived($archived) {
+        $this->archived = $archived;
     }
     
     public function getOrder() {
