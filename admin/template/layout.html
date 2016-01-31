@@ -35,6 +35,12 @@
     </nav>
         
         <div class="starter-template">
+            <?php if(!empty($viewData['success'])){ ?>
+            <div class="alert alert-success" role="alert">Zmiany zostały zapisane.</div>
+            <?php } ?>
+            <?php if(!empty($viewData['error'])){ ?>
+            <div class="alert alert-danger" role="alert">Wystąpił błąd. Zmiany nie zostały zapisane.</div>
+            <?php } ?>
             <h1><?= $viewData['templateTitle']; ?></h1>
             <?php include($template) ?>
         </div>

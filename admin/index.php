@@ -35,6 +35,16 @@ $controllerObj->$actionName();
 $viewData = $controllerObj->getViewData();
 $viewData['menu'] = $controller;
 
+if(!empty($_GET['msg'])){
+    switch($_GET['msg']){
+        case 'saved':
+            $viewData['success'] = true;
+            break;
+                case 'save_error':
+            $viewData['error'] = true;
+            break;
+    }
+}
 
 include('template/layout.html');
 
