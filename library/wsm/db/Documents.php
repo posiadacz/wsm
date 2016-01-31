@@ -2,8 +2,12 @@
 
 class Wsm_Db_Documents{
     
-    public function getList($type){
-        $q = 'select * from documents where `deleted`=false and type=\'' . $type . '\' order by if(category = \'\',1,0) asc, category asc, importance desc, title asc';
+    public function getList($type, $category = null){
+        $categoryPart = $category != null ? ' and `category`=\'' . $category . '\'' : '';
+        $q = 'select * from documents '
+                . 'where `deleted`=false and type=\'' . $type . '\' '
+                . $categoryPart
+                . 'order by if(category = \'\',1,0) asc, `category` asc, `order` asc, `importance` desc, `title` asc';
         $rows = Wsm_Db::getInstance()->query($q);
         return $this->getListFromRows($rows);
     }
@@ -37,6 +41,7 @@ class Wsm_Db_Documents{
         $news->setImportance($row['importance']);
         $news->setType($row['type']);
         $news->setCategory($row['category']);
+        $news->setOrder($row['order']);
         return $news;
     }
     
@@ -67,6 +72,7 @@ class Wsm_Db_Documents{
         $q .= 'filename=\'' . Wsm_Db::escape($news->getFilename()) . '\', ';
         $q .= 'importance=\'' . $news->getImportance() . '\', ';
         $q .= 'type=\'' . $news->getType() . '\', ';
+        $q .= '`order`=\'' . $news->getOrder() . '\', ';
         $q .= 'category=\'' . $news->getCategory() . '\' ';
         $q .= 'where id=\'' . $news->getId() . '\' limit 1';
         Wsm_Db::getInstance()->update($q);
@@ -78,8 +84,14 @@ class Wsm_Db_Documents{
         $importance = $news->getImportance();
         $category = $news->getCategory();
         
-        $q = 'insert into documents(title, filename, importance, type, category) ';
-        $q .= 'values(\'' . Wsm_Db::escape($title) . '\', \'' . Wsm_Db::escape($filename) . '\', \'' . $importance . '\', \'' . $news->getType() . '\', \'' . Wsm_Db::escape($category) . '\'';
+        $q = 'insert into documents(title, filename, importance, type, category, order) ';
+        $q .= 'values(\'' 
+                . Wsm_Db::escape($title) . '\', \'' 
+                . Wsm_Db::escape($filename) . '\', \'' 
+                . $importance . '\', \'' 
+                . $news->getType() . '\', \'' 
+                . Wsm_Db::escape($category) . '\', \'' 
+                . $news->getOrder() . '\'' ;
         $q .= ')';
         Wsm_Db::getInstance()->update($q);
     }

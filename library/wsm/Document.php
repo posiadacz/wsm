@@ -8,11 +8,21 @@ class Wsm_Document{
     private $importance;
     private $type;
     private $category;
+    private $order;
     
     public function __construct($type = null){
         $this->type = $type;
     }
     
+    public function getOrder() {
+        return $this->order;
+    }
+
+    public function setOrder($order) {
+        $this->order = $order;
+    }
+
+        
     public function getType() {
         return $this->type;
     }

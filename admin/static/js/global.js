@@ -30,4 +30,12 @@ $(document).ready(function(){
       $('.js-documentFileDeleteStep2').show();
    }); 
     
+   /*
+   var hash = window.location.hash; 
+   if(hash != undefined){
+       var docId = "#id-" + hash.substr(1);
+       console.log(docId);
+       $.scrollTo(docId).delay(5000);
+   }
+    */
 });

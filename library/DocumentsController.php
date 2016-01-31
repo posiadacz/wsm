@@ -84,4 +84,46 @@ class DocumentsController extends AbstractController{
             $this->redirect($this->getBaseUrl() . '&msg=save_error', true); 
         }      
     }
+    
+    public function moveAction(){
+        if($this->has('id') 
+            && $this->has('order')){
+            try{
+                $id = $this->get('id');
+                $isOrderUp = $this->get('order') == 'up';
+                $db = new Wsm_Db_Documents();
+                $doc = $db->get($id);
+                $category = $doc->getCategory();
+
+                $list = $db->getList($this->type, $category);
+                $size = count($list);
+                foreach($list as $key => $d){
+                    if($d->getId() == $doc->getId()){
+                        if($isOrderUp){
+                            if($key != 0){
+                                $list[$key] = $list[$key - 1];
+                                $list[$key - 1] = $d;
+                            }
+                        }else{
+                            if($key < $size - 1){
+                                $list[$key] = $list[$key + 1];
+                                $list[$key + 1] = $d;
+                            }
+                        }
+                        break;
+                    }
+                }
+
+                $j = 0;
+                foreach($list as $d){
+                    $d->setOrder($j++);
+                    $db->save($d);
+                }
+                $this->redirect($this->getBaseUrl() . '&msg=saved#id-' . $doc->getId(), true); 
+            }catch(Exception $e){
+                
+            }
+        }
+        $this->redirect($this->getBaseUrl() . '&msg=save_error', true); 
+    }
 }

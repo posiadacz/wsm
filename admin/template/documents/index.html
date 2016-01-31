@@ -4,12 +4,13 @@
 <div class="spacer">&nbsp;</div>
 <table class="table table-striped">
     <tr>
+        <th>Kolejność</th>
         <th>Tytuł</th>
         <th colspan="2">Opcje</th>
     </tr>
     <tr>
-        <td>&nbsp;</td>
-        <td  colspan="2"><a href="/admin/documents/add?type=<?=$viewData['type'] ?>" class="btn btn-success">Nowy</a></td>
+        <td colspan="2">&nbsp;</td>
+        <td colspan="2"><a href="/admin/documents/add?type=<?=$viewData['type'] ?>" class="btn btn-success">Nowy</a></td>
     </tr>
 <?php 
 $lastCategory = '';
@@ -18,12 +19,15 @@ foreach($viewData['list'] as $doc){
     $lastCategory = $doc->getCategory();
     ?>
     <tr>
-        <td><strong><?= $doc->getCategory() ?></strong></td>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td colspan="3"><strong><?= $doc->getCategory() ?></strong></td>
     </tr>
     <?php } ?>
-    <tr>
+    <tr id="id-<?= $doc->getId() ?>">
+        <td style="width: 110px;">
+            <a href="/admin/documents/move?id=<?= $doc->getId() ?>&order=up&type=<?=$viewData['type'] ?>" class="btn btn-primary glyphicon glyphicon-chevron-up"></a>
+            <a href="/admin/documents/move?id=<?= $doc->getId() ?>&order=down&type=<?=$viewData['type'] ?>" class="btn btn-primary glyphicon glyphicon-chevron-down"></a>
+        </td>
         <td style="padding-left: 20px;"><?= $doc->getTitle() ?></td>
         <td>
             <a href="/admin/documents/edit?id=<?= $doc->getId() ?>&type=<?=$viewData['type'] ?>" class="btn btn-primary">Edytuj</a>
