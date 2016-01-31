@@ -2,12 +2,13 @@
 
 class Wsm_Db_Documents{
     
-    public function getList($type, $category = null){
+    public function getList($type, $category = null, $isArchive = false){
         $categoryPart = $category != null ? ' and `category`=\'' . $category . '\'' : '';
+        $archivePart = $isArchive ? " and `archived`=true " : " and `archived`=false ";
         $q = 'select * from documents '
                 . 'where `deleted`=false and type=\'' . $type . '\' '
                 . $categoryPart .
-                " and `archived`='false'"  
+                $archivePart  
                 . 'order by if(category = \'\',1,0) asc, `category` asc, `order` asc, `importance` desc, `title` asc';
         $rows = Wsm_Db::getInstance()->query($q);
         return $this->getListFromRows($rows);

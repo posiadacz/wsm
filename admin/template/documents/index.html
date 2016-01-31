@@ -1,6 +1,10 @@
 <div class="spacer">&nbsp;</div>
 <a href="/admin/documents?type=1" class="btn btn-primary">Dokumenty do pobrania</a>
 <a href="/admin/documents?type=2" class="btn btn-primary">Materiały dla członków spółdzielni</a>
+<div style="margin-top: 5px;">
+<a href="/admin/documents?type=1&is_archive=1" class="btn btn-warning">Dokumenty do pobrania - Archiwum</a>
+<a href="/admin/documents?type=2&is_archive=1" class="btn btn-warning">Materiały dla członków spółdzielni - Archiwum</a>
+</div>
 <div class="spacer">&nbsp;</div>
 <table class="table table-striped">
     <tr>
@@ -8,10 +12,12 @@
         <th>Tytuł</th>
         <th colspan="3">Opcje</th>
     </tr>
+    <?php if(empty($viewData['isArchive'])){ ?>
     <tr>
         <td colspan="2">&nbsp;</td>
         <td colspan="3"><a href="/admin/documents/add?type=<?=$viewData['type'] ?>" class="btn btn-success">Nowy</a></td>
     </tr>
+    <?php } ?>
 <?php 
 $lastCategory = '';
 foreach($viewData['list'] as $doc){
@@ -25,18 +31,20 @@ foreach($viewData['list'] as $doc){
     <?php } ?>
     <tr id="id-<?= $doc->getId() ?>">
         <td style="width: 110px;">
-            <a href="/admin/documents/move?id=<?= $doc->getId() ?>&order=up&type=<?=$viewData['type'] ?>" class="btn btn-primary glyphicon glyphicon-chevron-up"></a>
-            <a href="/admin/documents/move?id=<?= $doc->getId() ?>&order=down&type=<?=$viewData['type'] ?>" class="btn btn-primary glyphicon glyphicon-chevron-down"></a>
+            <a href="/admin/documents/move?id=<?= $doc->getId() ?>&order=up&type=<?=$viewData['type'] ?>&is_archive=<?=$viewData['isArchive'] ?>" class="btn btn-primary glyphicon glyphicon-chevron-up"></a>
+            <a href="/admin/documents/move?id=<?= $doc->getId() ?>&order=down&type=<?=$viewData['type'] ?>&is_archive=<?=$viewData['isArchive'] ?>" class="btn btn-primary glyphicon glyphicon-chevron-down"></a>
         </td>
         <td style="padding-left: 20px;"><?= $doc->getTitle() ?></td>
         <td>
-            <a href="/admin/documents/edit?id=<?= $doc->getId() ?>&type=<?=$viewData['type'] ?>" class="btn btn-primary">Edytuj</a>
+            <a href="/admin/documents/edit?id=<?= $doc->getId() ?>&type=<?=$viewData['type'] ?>&is_archive=<?=$viewData['isArchive'] ?>" class="btn btn-primary">Edytuj</a>
         </td>
         <td>
-            <a href="/admin/documents/delete?id=<?= $doc->getId() ?>&type=<?=$viewData['type'] ?>" rel="Czy na pewno chcesz usunąć: <?= $doc->getTitleEncoded() ?>?" class="btn btn-danger js-confirm">Usuń</a>
+            <a href="/admin/documents/delete?id=<?= $doc->getId() ?>&type=<?=$viewData['type'] ?>&is_archive=<?=$viewData['isArchive'] ?>" rel="Czy na pewno chcesz usunąć: <?= $doc->getTitleEncoded() ?>?" class="btn btn-danger js-confirm">Usuń</a>
         </td>
         <td>
-            <a href="/admin/documents/archive?id=<?= $doc->getId() ?>&type=<?=$viewData['type'] ?>" rel="Czy na pewno chcesz archiwizować <?= $doc->getTitleEncoded() ?>?" class="btn btn-warning js-confirm">Archiwizuj</a>
+            <?php if(empty($viewData['isArchive'])){ ?>
+            <a href="/admin/documents/archive?id=<?= $doc->getId() ?>&type=<?=$viewData['type'] ?>&is_archive=<?=$viewData['isArchive'] ?>" rel="Czy na pewno chcesz archiwizować <?= $doc->getTitleEncoded() ?>?" class="btn btn-warning js-confirm">Archiwizuj</a>
+            <?php } ?>
         </td>
     </tr>
 <?php } ?>

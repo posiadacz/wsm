@@ -3,6 +3,7 @@
 class DocumentsController extends AbstractController{
     
     private $type;
+    private $isArchive;
     
     public function __construct(){
         $type = $this->get('type');
@@ -11,11 +12,25 @@ class DocumentsController extends AbstractController{
         }
         $this->type = $type;
         $title = $type == '1' ? 'Dokumenty do pobrania' : 'Materiały dla członków spółdzielni';
+        
+        //archive
+        $isArchive = $this->get('is_archive');
+        if(empty($isArchive)){
+            $isArchive = false;
+        }else{
+            $isArchive = true;
+        }
+        $this->isArchive = $isArchive;
+        
+        if($isArchive){
+            $title .= ' - Archiwum';
+        }
         $this->setTitle($title);
         
-        $url = '/admin/documents?type=' . $type;
+        $url = '/admin/documents?type=' . $type . '&is_archive=' . $isArchive;
         $this->setBaseUrl($url);
         $this->addToView('type', $type);
+        $this->addToView('isArchive', $isArchive);
     }
     
     private function getType(){
@@ -24,7 +39,7 @@ class DocumentsController extends AbstractController{
     
     public function indexAction(){
         $db = new Wsm_Db_Documents();
-        $list = $db->getList($this->getType());
+        $list = $db->getList($this->getType(), null, $this->isArchive);
         $this->addToView('list', $list);
     }
     
