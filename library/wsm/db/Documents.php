@@ -14,6 +14,13 @@ class Wsm_Db_Documents{
         return $this->getListFromRows($rows);
     }
     
+    public function hasArchive($type){
+        $q = 'select count(id) as count from documents where `deleted`=false and type=\'' . $type . '\' and `archived`=true';
+        $rows = Wsm_Db::getInstance()->query($q);
+        $count = $rows[0]['count'];
+        return $count > 0;
+    }
+    
     public function get($id){
         $q = 'select * from documents where id="' . $id . '" limit 1';
         $rows = Wsm_Db::getInstance()->query($q);

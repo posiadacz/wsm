@@ -51,4 +51,15 @@
     <?php } ?>
       </tbody>
   </table>
+  <div class="spacer">&nbsp;</div>
+  <?php if($viewData['showArchiveLink']){ ?>
+  <div style="text-align: center">
+      <a href="/dokumenty.html?is_archive=1<?php if($viewData['type'] == '2'){ ?>&type=2<? }php?>"><strong>Archiwum</strong></a>
+  </div>
+  <?php } ?>
+  <?php if($viewData['showListLink']){ ?>
+  <div style="text-align: center">
+      <a href="/dokumenty.html?<?php if($viewData['type'] == '2'){ ?>&type=2<? }php?>"><strong>Wróć do listy.</strong></a>
+  </div>
+  <?php } ?>
 </div>

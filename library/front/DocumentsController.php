@@ -3,6 +3,7 @@
 class Front_DocumentsController extends Front_AbstractController{
     
     private $type;
+    private $isArchive;
     
     private $template = 'documents/index.html';
     
@@ -15,6 +16,9 @@ class Front_DocumentsController extends Front_AbstractController{
             $this->login();
         }
         $this->type = $type;
+        $this->isArchive = $this->has('is_archive') && !empty($this->get('is_archive'));
+        $this->addToView('showArchiveLink', false);
+        $this->addToView('showListLink', $this->isArchive);
     }
     
     private function getType(){
@@ -23,12 +27,18 @@ class Front_DocumentsController extends Front_AbstractController{
     
     public function indexAction(){
         $title = $this->getType() == '2' ? 'Materiały dla członków spółdzielni' : 'Dokumenty do pobrania'; 
+        if($this->isArchive){
+            $title .= ' - Archiwum';
+        }
         $this->setTitle($title);
         $this->setUrl('dokumenty.html');
         
         $dbService = new Wsm_Db_Documents();
-        $this->addToView('list', $dbService->getList($this->getType()));
+        $this->addToView('list', $dbService->getList($this->getType(), null, $this->isArchive));
         $this->addToView('type', $this->getType());
+        
+        $hasArchive = $dbService->hasArchive($this->getType());
+        $this->addToView('showArchiveLink', !$this->isArchive && $hasArchive);
     }
     
 
