@@ -16,7 +16,8 @@ class Front_DocumentsController extends Front_AbstractController{
             $this->login();
         }
         $this->type = $type;
-        $this->isArchive = $this->has('is_archive') && !empty($this->get('is_archive'));
+        $isArchive = $this->get('is_archive');
+        $this->isArchive = $this->has('is_archive') && !empty($isArchive);
         $this->addToView('showArchiveLink', false);
         $this->addToView('showListLink', $this->isArchive);
     }
