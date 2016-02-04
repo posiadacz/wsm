@@ -94,7 +94,7 @@ class DocumentsController extends AbstractController{
         $file = $_FILES['file'];
         if(!empty($file) && !empty($file['name'])){
             $filename = $file['name'];
-            $uploadDir = getcwd() . '/../../documents/';
+            $uploadDir = '/documents/';
             $filePath = $uploadDir  .  $filename;
             if(file_exists($filePath)){
                 unlink($filePath);

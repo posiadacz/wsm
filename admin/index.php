@@ -11,6 +11,15 @@ function d($val){
 }
 
 $url = $_SERVER['REQUEST_URI'];
+
+$host = $_SERVER['HTTP_HOST'];
+if($host == 'wsmochota.com.pl'){
+    header('Location: http://admin.wsmochota.com.pl' . $url);
+    die;
+}
+
+
+
 $urlControllerActionParts = explode('?', $url);
 $urlControllerAction = $urlControllerActionParts[0];
 $urlParts = explode('/', $urlControllerAction);
