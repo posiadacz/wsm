@@ -68,10 +68,9 @@ class DocumentsController extends AbstractController{
         if($this->has('id')){
             $doc = new Wsm_Document();
             $doc->setId($this->get('id'));
-            $doc->setArchived(true);
             $dbService = new Wsm_Db_Documents();
             try{
-                $dbService->save($doc);
+                $dbService->archive($doc);
                 $this->redirect($this->getBaseUrl() . '&msg=saved', true); 
             }catch(Exception $e){
             

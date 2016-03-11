@@ -51,7 +51,7 @@ class Wsm_Db_Documents{
         $news->setType($row['type']);
         $news->setCategory($row['category']);
         $news->setOrder($row['order']);
-        $news->setArchived($row['archived']);
+        $news->setArchived($row['archived'] == '1');
         return $news;
     }
     
@@ -75,7 +75,18 @@ class Wsm_Db_Documents{
         }
         return false;
     }
-    
+        
+    public  function archive($doc){
+        $id = $doc->getId();
+        if(!empty($id)){
+            $q = 'update documents set ';
+            $q .= 'archived=true ';
+            $q .= 'where id=\'' . $id . '\' limit 1';
+            Wsm_Db::getInstance()->update($q);
+            return true;
+        }
+        return false;
+    }
     private function update($news){
         $q = 'update documents set ';
         $q .= 'title=\'' . Wsm_Db::escape($news->getTitle()) . '\', ';
@@ -83,7 +94,6 @@ class Wsm_Db_Documents{
         $q .= 'importance=\'' . $news->getImportance() . '\', ';
         $q .= 'type=\'' . $news->getType() . '\', ';
         $q .= '`order`=\'' . $news->getOrder() . '\', ';
-        $q .= '`archived`=\'' . $news->getArchived() . '\', ';
         $q .= 'category=\'' . $news->getCategory() . '\' ';
         $q .= 'where id=\'' . $news->getId() . '\' limit 1';
         Wsm_Db::getInstance()->update($q);

@@ -5,6 +5,7 @@ $importance = $news->getImportance();
   <input type="hidden" name="id" value="<?= $news->getId() ?>" />
   <input type="hidden" name="filename" class="js-filename" value="<?= $news->getFilename() ?>" />
   <input type="hidden" name="type" value="<?= $news->getType() ?>" />
+  <input type="hidden" name="is_archive" value="<?= $viewData['isArchive'] ? '1' : '0'; ?>" />
   <div class="form-group">
     <label for="title">Tytuł</label>
     <input class="form-control" name="title" value="<?= Wsm_Form::encode($news->getTitle()) ?>"/>
